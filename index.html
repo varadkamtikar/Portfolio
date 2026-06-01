@@ -668,6 +668,9 @@ section {
   gap: 24px;
 }
 .proj-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
@@ -675,7 +678,7 @@ section {
   position: relative;
   overflow: hidden;
   transition: all 0.4s ease;
-  cursor: default;
+  cursor: pointer;
 }
 .proj-card::before {
   content: '';
@@ -711,6 +714,16 @@ section {
   margin-bottom: 20px;
 }
 .proj-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.proj-link {
+  margin-top: 18px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--cyan);
+  opacity: 0.7;
+  transition: opacity 0.3s;
+}
+.proj-card:hover .proj-link { opacity: 1; }
 .proj-tag {
   padding: 3px 10px;
   border-radius: 4px;
@@ -959,6 +972,7 @@ footer span { color: var(--pink); }
       <div class="hero-ctas">
         <a href="#contact" class="btn btn-primary">Get In Touch →</a>
         <a href="#projects" class="btn btn-outline">View Projects</a>
+        <a href="https://github.com/varadkamtikar" target="_blank" rel="noopener" class="btn btn-outline">GitHub 🐙</a>
       </div>
     </div>
     <div class="hero-card-wrap">
@@ -974,7 +988,7 @@ footer span { color: var(--pink); }
             <div class="stat-label">Yrs Exp</div>
           </div>
           <div class="card-stat">
-            <div class="stat-num">4+</div>
+            <div class="stat-num">7+</div>
             <div class="stat-label">Projects</div>
           </div>
           <div class="card-stat">
@@ -1140,71 +1154,89 @@ footer span { color: var(--pink); }
   <h2 class="section-title reveal">Featured Projects</h2>
 
   <div class="projects-grid">
-    <div class="proj-card reveal">
+    <a href="https://github.com/varadkamtikar/MSc-Dissertation" target="_blank" rel="noopener" class="proj-card reveal">
       <span class="proj-emoji">🧠</span>
       <div class="proj-name">AI-Based EEG Signal Classification</div>
-      <p class="proj-desc">End-to-end ML pipeline for EEG signal analysis. Preprocessing, feature extraction, and supervised classification on multi-subject dataset with cross-validation, SMOTE and leakage-free evaluation.</p>
+      <p class="proj-desc">End-to-end, leakage-free ML pipeline detecting reward-related neural patterns in EEG signals across 32 subjects from the DEAP dataset. Rigorous cross-subject cross-validation, SMOTE oversampling, and an interactive Streamlit dashboard.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span>
-        <span class="proj-tag">Pandas</span><span class="proj-tag">NumPy</span>
-        <span class="proj-tag">SMOTE</span><span class="proj-tag">EEG</span>
+        <span class="proj-tag">Python</span><span class="proj-tag">MNE-Python</span>
+        <span class="proj-tag">XGBoost</span><span class="proj-tag">Scikit-learn</span>
+        <span class="proj-tag">SMOTE</span><span class="proj-tag">Streamlit</span>
       </div>
-    </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
 
-    <div class="proj-card reveal" style="transition-delay:0.1s;">
+    <a href="https://github.com/varadkamtikar/Indian-Stock-Market-Predictor" target="_blank" rel="noopener" class="proj-card reveal" style="transition-delay:0.1s;">
       <span class="proj-emoji">📈</span>
-      <div class="proj-name">Stock Market Prediction (LSTM)</div>
-      <p class="proj-desc">Time-series prediction model using LSTM Neural Networks. Applied deep learning and ML techniques to forecast stock prices from historical data. Final year B.Tech project with strong accuracy results.</p>
+      <div class="proj-name">Indian Stock Market Predictor</div>
+      <p class="proj-desc">LSTM-based stock price prediction dashboard for Indian equity markets (NSE & BSE). Forecasts prices from historical time-series data using deep learning with an interactive visualisation interface.</p>
       <div class="proj-tags">
         <span class="proj-tag">Python</span><span class="proj-tag">LSTM</span>
-        <span class="proj-tag">TensorFlow</span><span class="proj-tag">Neural Networks</span>
-        <span class="proj-tag">Time Series</span>
+        <span class="proj-tag">TensorFlow</span><span class="proj-tag">Time Series</span>
+        <span class="proj-tag">Jupyter</span>
       </div>
-    </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
 
-    <div class="proj-card reveal" style="transition-delay:0.2s;">
-      <span class="proj-emoji">🎬</span>
-      <div class="proj-name">Netflix Data Analysis Dashboard</div>
-      <p class="proj-desc">Interactive Power BI dashboard to analyse the Netflix movies and TV shows dataset. Performed data cleaning, KPI reporting and visualisation of ratings, genres, release years and country distribution.</p>
+    <a href="https://github.com/varadkamtikar/Ireland-Weather-Hub" target="_blank" rel="noopener" class="proj-card reveal" style="transition-delay:0.2s;">
+      <span class="proj-emoji">🌦️</span>
+      <div class="proj-name">Ireland Weather Hub</div>
+      <p class="proj-desc">Real-time weather analytics platform for Ireland. Integrates Python, PostgreSQL, and XGBoost to forecast rainfall, with Streamlit dashboards and live data ingestion pipelines.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Power BI</span><span class="proj-tag">Data Cleaning</span>
-        <span class="proj-tag">KPI</span><span class="proj-tag">Visualisation</span>
+        <span class="proj-tag">Python</span><span class="proj-tag">PostgreSQL</span>
+        <span class="proj-tag">XGBoost</span><span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">Data Engineering</span>
+      </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
+
+    <a href="https://github.com/varadkamtikar/Ireland-Housing-Intelligence" target="_blank" rel="noopener" class="proj-card reveal" style="transition-delay:0.15s;">
+      <span class="proj-emoji">🏠</span>
+      <div class="proj-name">Ireland Housing Intelligence</div>
+      <p class="proj-desc">Interactive platform visualising Ireland's rental and property market using RTB & CSO government data. Tracks rent trends, affordability, and regional patterns across all Irish counties with Plotly dashboards.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Python</span><span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">PostgreSQL</span><span class="proj-tag">Plotly</span>
         <span class="proj-tag">Analytics</span>
       </div>
-    </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
 
-    <div class="proj-card reveal" style="transition-delay:0.15s;">
-      <span class="proj-emoji">🤖</span>
-      <div class="proj-name">ML Model Development Pipeline</div>
-      <p class="proj-desc">Built comprehensive data analysis and prediction models using Pandas, NumPy and Scikit-learn. Performed data cleaning, feature selection, model training and evaluation with supervised learning algorithms.</p>
+    <a href="https://github.com/varadkamtikar/Credit-Fraud-Detection" target="_blank" rel="noopener" class="proj-card reveal" style="transition-delay:0.25s;">
+      <span class="proj-emoji">💳</span>
+      <div class="proj-name">Credit Fraud Detection</div>
+      <p class="proj-desc">ML pipeline to detect fraudulent credit card transactions. Applied classification algorithms with feature engineering, SMOTE for class imbalance handling, and rigorous precision/recall evaluation.</p>
       <div class="proj-tags">
-        <span class="proj-tag">Python</span><span class="proj-tag">Pandas</span>
-        <span class="proj-tag">Scikit-learn</span><span class="proj-tag">Feature Engineering</span>
-        <span class="proj-tag">Model Evaluation</span>
+        <span class="proj-tag">Python</span><span class="proj-tag">Scikit-learn</span>
+        <span class="proj-tag">SMOTE</span><span class="proj-tag">Classification</span>
+        <span class="proj-tag">Pandas</span>
       </div>
-    </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
 
-    <div class="proj-card reveal" style="transition-delay:0.25s;">
-      <span class="proj-emoji">⚡</span>
-      <div class="proj-name">Generative AI Exploration</div>
-      <p class="proj-desc">Currently learning and building with LangChain, RAG pipelines, HuggingFace Transformers and Vector Databases. Exploring LLM integration patterns and AI engineering workflows.</p>
+    <a href="https://github.com/varadkamtikar/Bank-Note-Authentication-using-FastAPI" target="_blank" rel="noopener" class="proj-card reveal" style="transition-delay:0.3s;">
+      <span class="proj-emoji">🔐</span>
+      <div class="proj-name">Bank Note Authentication API</div>
+      <p class="proj-desc">ML-powered REST API using FastAPI to classify bank notes as authentic or fake in real time. Scikit-learn model served over Uvicorn with four image-derived features as input.</p>
       <div class="proj-tags">
-        <span class="proj-tag">LangChain</span><span class="proj-tag">RAG</span>
-        <span class="proj-tag">HuggingFace</span><span class="proj-tag">LLMs</span>
-        <span class="proj-tag">Streamlit</span>
+        <span class="proj-tag">Python</span><span class="proj-tag">FastAPI</span>
+        <span class="proj-tag">Scikit-learn</span><span class="proj-tag">REST API</span>
+        <span class="proj-tag">ML Deployment</span>
       </div>
-    </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
 
-    <div class="proj-card reveal" style="transition-delay:0.3s;">
-      <span class="proj-emoji">🔗</span>
-      <div class="proj-name">Enterprise Mainframe Optimization</div>
-      <p class="proj-desc">Led optimization of legacy COBOL/JCL enterprise applications at Accenture. Improved system performance through SQL query tuning, code refactoring and resolving production-critical issues across SDLC phases.</p>
+    <a href="https://github.com/varadkamtikar/Tableau-Netflix-Content-Analysis" target="_blank" rel="noopener" class="proj-card reveal" style="transition-delay:0.35s;">
+      <span class="proj-emoji">🎬</span>
+      <div class="proj-name">Netflix Content Analysis</div>
+      <p class="proj-desc">Tableau dashboard examining Netflix catalogue patterns across content type, geography, ratings, and duration. Interactive visualisations reveal genre trends and global distribution across the streaming library.</p>
       <div class="proj-tags">
-        <span class="proj-tag">COBOL</span><span class="proj-tag">JCL</span>
-        <span class="proj-tag">DB2</span><span class="proj-tag">SQL</span>
-        <span class="proj-tag">Mainframe</span>
+        <span class="proj-tag">Tableau</span><span class="proj-tag">Data Analysis</span>
+        <span class="proj-tag">Visualisation</span><span class="proj-tag">EDA</span>
+        <span class="proj-tag">Dashboard</span>
       </div>
-    </div>
+      <div class="proj-link">View on GitHub →</div>
+    </a>
   </div>
 </section>
 
@@ -1283,6 +1315,13 @@ footer span { color: var(--pink); }
           <div class="contact-info-val">Open to Data Science &amp; Analytics Roles</div>
         </div>
       </div>
+      <a href="https://github.com/varadkamtikar" target="_blank" rel="noopener" class="contact-card reveal from-left" style="transition-delay:0.4s;">
+        <div class="contact-icon" style="background:rgba(255,255,255,0.08);">🐙</div>
+        <div>
+          <div class="contact-info-label">GitHub</div>
+          <div class="contact-info-val">github.com/varadkamtikar</div>
+        </div>
+      </a>
     </div>
 
     <div class="contact-avatar-wrap reveal">
