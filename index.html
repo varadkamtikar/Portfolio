@@ -407,7 +407,7 @@ section {
   66% { transform: translateY(-6px) rotate3d(1,-1,0,2deg); }
 }
 .card-avatar {
-  width: 80px; height: 80px;
+  width: 90px; height: 90px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--indigo), var(--pink));
   display: flex;
@@ -419,6 +419,14 @@ section {
   color: #fff;
   margin: 0 auto 16px;
   box-shadow: 0 8px 32px rgba(79,53,199,0.5);
+  overflow: hidden;
+  padding: 0;
+  border: 3px solid rgba(255,255,255,0.15);
+}
+.card-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 .card-name {
   font-family: var(--font-head);
@@ -882,7 +890,7 @@ section {
 .contact-avatar {
   position: relative;
   z-index: 2;
-  width: 110px; height: 110px;
+  width: 120px; height: 120px;
   border-radius: 50%;
   background: linear-gradient(135deg, var(--indigo), var(--pink));
   display: flex;
@@ -893,6 +901,14 @@ section {
   font-weight: 800;
   color: #fff;
   box-shadow: 0 12px 48px rgba(79,53,199,0.5);
+  overflow: hidden;
+  padding: 0;
+  border: 3px solid rgba(255,255,255,0.15);
+}
+.contact-avatar img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 /* ===== FOOTER ===== */
@@ -1077,7 +1093,7 @@ a.contact-card {
       <div class="hero-glow"></div>
       <div class="hero-ring"></div>
       <div class="hero-card">
-        <div class="card-avatar">VK</div>
+        <div class="card-avatar"><img src="profile-photo.png" alt="Varadkrishna Kamtikar" /></div>
         <div class="card-name">Varadkrishna Kamtikar</div>
         <div class="card-role">Data Scientist</div>
         <div class="card-stats">
@@ -1440,7 +1456,7 @@ a.contact-card {
       <div class="ripple"></div>
       <div class="ripple"></div>
       <div class="ripple"></div>
-      <div class="contact-avatar">VK</div>
+      <div class="contact-avatar"><img src="profile-photo.png" alt="Varadkrishna Kamtikar" /></div>
     </div>
   </div>
 </section>
