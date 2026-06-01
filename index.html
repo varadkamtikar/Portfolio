@@ -906,6 +906,97 @@ footer {
   color: var(--text-muted);
 }
 footer span { color: var(--pink); }
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 14px;
+}
+.footer-social a {
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.3s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.footer-social a:hover { color: var(--cyan); }
+
+/* ===== BACK TO TOP ===== */
+#back-to-top {
+  position: fixed;
+  bottom: 32px; right: 32px;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--indigo), var(--pink));
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 500;
+  box-shadow: 0 8px 24px rgba(79,53,199,0.45);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.35s, transform 0.35s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+#back-to-top.visible { opacity: 1; transform: translateY(0); }
+#back-to-top:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(79,53,199,0.65); }
+
+/* ===== ACTIVE NAV ===== */
+.nav-links a.active { color: var(--text); }
+.nav-links a.active::after { width: 100%; }
+
+/* ===== NAV SOCIAL ICONS ===== */
+.nav-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-left: 24px;
+}
+.nav-social a {
+  width: 34px; height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+}
+.nav-social a:hover {
+  border-color: var(--cyan);
+  background: rgba(0,212,245,0.08);
+  transform: translateY(-2px);
+}
+
+/* ===== CONTACT CARD AS LINK ===== */
+a.contact-card {
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ===== PROJECTS CTA ===== */
+.projects-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ===== SECTION DIVIDER ===== */
+.section-divider {
+  width: 60px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--indigo-light), var(--pink));
+  border-radius: 2px;
+  margin-bottom: 48px;
+}
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
@@ -952,8 +1043,14 @@ footer span { color: var(--pink); }
     <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-toggle" id="navToggle">
-    <span></span><span></span><span></span>
+  <div style="display:flex;align-items:center;gap:8px;">
+    <div class="nav-social">
+      <a href="https://github.com/varadkamtikar" target="_blank" rel="noopener" title="GitHub">🐙</a>
+      <a href="https://www.linkedin.com/in/varadkamtikar/" target="_blank" rel="noopener" title="LinkedIn">💼</a>
+    </div>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
@@ -973,6 +1070,7 @@ footer span { color: var(--pink); }
         <a href="#contact" class="btn btn-primary">Get In Touch →</a>
         <a href="#projects" class="btn btn-outline">View Projects</a>
         <a href="https://github.com/varadkamtikar" target="_blank" rel="noopener" class="btn btn-outline">GitHub 🐙</a>
+        <a href="https://www.linkedin.com/in/varadkamtikar/" target="_blank" rel="noopener" class="btn btn-outline">LinkedIn 💼</a>
       </div>
     </div>
     <div class="hero-card-wrap">
@@ -1240,6 +1338,13 @@ footer span { color: var(--pink); }
   </div>
 </section>
 
+  <div class="projects-cta reveal">
+    <a href="https://github.com/varadkamtikar" target="_blank" rel="noopener" class="btn btn-outline">
+      View All Projects on GitHub &nbsp;🐙
+    </a>
+  </div>
+</section>
+
 <!-- EDUCATION -->
 <section id="education">
   <div class="section-label">Academia</div>
@@ -1287,20 +1392,20 @@ footer span { color: var(--pink); }
 
   <div class="contact-inner">
     <div class="contact-cards">
-      <div class="contact-card reveal from-left">
+      <a href="mailto:varad.kamtikar@gmail.com" class="contact-card reveal from-left">
         <div class="contact-icon icon-email">📧</div>
         <div>
           <div class="contact-info-label">Email</div>
           <div class="contact-info-val">varad.kamtikar@gmail.com</div>
         </div>
-      </div>
-      <div class="contact-card reveal from-left" style="transition-delay:0.1s;">
+      </a>
+      <a href="tel:+353892016969" class="contact-card reveal from-left" style="transition-delay:0.1s;">
         <div class="contact-icon icon-phone">📱</div>
         <div>
           <div class="contact-info-label">Phone</div>
           <div class="contact-info-val">+353 89 201 6969</div>
         </div>
-      </div>
+      </a>
       <div class="contact-card reveal from-left" style="transition-delay:0.2s;">
         <div class="contact-icon icon-location">📍</div>
         <div>
@@ -1322,6 +1427,13 @@ footer span { color: var(--pink); }
           <div class="contact-info-val">github.com/varadkamtikar</div>
         </div>
       </a>
+      <a href="https://www.linkedin.com/in/varadkamtikar/" target="_blank" rel="noopener" class="contact-card reveal from-left" style="transition-delay:0.5s;">
+        <div class="contact-icon" style="background:rgba(10,102,194,0.15);">💼</div>
+        <div>
+          <div class="contact-info-label">LinkedIn</div>
+          <div class="contact-info-val">linkedin.com/in/varadkamtikar</div>
+        </div>
+      </a>
     </div>
 
     <div class="contact-avatar-wrap reveal">
@@ -1336,7 +1448,14 @@ footer span { color: var(--pink); }
 <!-- FOOTER -->
 <footer>
   <p>Crafted with <span>♥</span> by Varadkrishna Kamtikar &nbsp;·&nbsp; Dublin, Ireland &nbsp;·&nbsp; 2026</p>
+  <div class="footer-social">
+    <a href="https://github.com/varadkamtikar" target="_blank" rel="noopener">🐙 GitHub</a>
+    <a href="https://www.linkedin.com/in/varadkamtikar/" target="_blank" rel="noopener">💼 LinkedIn</a>
+    <a href="mailto:varad.kamtikar@gmail.com">📧 Email</a>
+  </div>
 </footer>
+
+<button id="back-to-top" title="Back to top">↑</button>
 
 <script>
 /* ============================
@@ -1526,6 +1645,33 @@ document.querySelectorAll('.nav-links a').forEach(link => {
     if (window.innerWidth < 600) links.style.display = 'none';
   });
 });
+
+/* ============================
+   SCROLL SPY — ACTIVE NAV
+============================ */
+const navSections = document.querySelectorAll('section[id]');
+const navItems = document.querySelectorAll('.nav-links a[href^="#"]');
+
+const spyObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navItems.forEach(a => a.classList.remove('active'));
+      const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+navSections.forEach(s => spyObserver.observe(s));
+
+/* ============================
+   BACK TO TOP
+============================ */
+const btt = document.getElementById('back-to-top');
+window.addEventListener('scroll', () => {
+  btt.classList.toggle('visible', window.scrollY > 500);
+});
+btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 </script>
 </body>
 </html>
