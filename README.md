@@ -36,9 +36,7 @@ Built as a **single self-contained HTML file** — no build tools, no package ma
 
 ## 🌐 Live Demo
 
-> 🔗 **[View Live Portfolio →](https://varadkamtikar.github.io/portfolio)**
-
-*(Update this link after deployment)*
+> 🔗 **[View Live Portfolio →](https://varadkamtikar.github.io/Portfolio/)**
 
 ---
 
@@ -79,11 +77,11 @@ Two-column layout with left content and right 3D floating card.
 - Large display name with shimmer gradient animation
 - Job title and description
 - Two CTA buttons (Get In Touch, View Projects)
-- 3D rotating card with name, role, and key stats (2.5+ yrs exp, 4+ projects, 8.04 GPA)
+- 3D rotating card with name, role, and key stats (2.5+ yrs exp, 7+ projects, 8.04 GPA)
 - Spinning dashed ring and glowing orb background
 
 ### 2. Skills
-- Animated skill bars (fill on scroll): Python 92%, SQL 88%, ML 88%, Power BI/Tableau 85%, Data Analysis 90%, and more
+- Animated skill bars (fill on scroll): Python 92%, SQL / Advanced SQL 88%, R 72%, JavaScript/HTML/CSS 65%, COBOL/JCL 80%, Machine Learning (Scikit-learn) 88%, Deep Learning (TensorFlow/PyTorch) 80%, NLP/Transformers 75%, Power BI/Tableau 85%, Data Analysis & EDA 90%
 - Shimmer sweep animation after each bar fills
 - Tech chip cloud of 30+ technologies — each floats upward on hover
 
@@ -95,13 +93,14 @@ Vertical timeline with animated gradient left border.
 - Highlight badge chips (Promoted / First Role)
 
 ### 4. Projects
-3-column responsive grid.
-- AI-Based EEG Signal Classification (MSc Dissertation)
-- Stock Market Prediction using LSTM (B.Tech Final Year Project)
-- Netflix Data Analysis Dashboard (Power BI)
-- ML Model Development Pipeline
-- Generative AI Exploration (LangChain, RAG, HuggingFace)
-- Enterprise Mainframe Optimization (Accenture)
+3-column responsive grid, each card linking out to its GitHub repo.
+- [AI-Based EEG Signal Classification](https://github.com/varadkamtikar/MSc-Dissertation) (MSc Dissertation)
+- [Indian Stock Market Predictor](https://github.com/varadkamtikar/Indian-Stock-Market-Predictor) (LSTM-based)
+- [Ireland Weather Hub](https://github.com/varadkamtikar/Ireland-Weather-Hub) (real-time weather analytics)
+- [Ireland Housing Intelligence](https://github.com/varadkamtikar/Ireland-Housing-Intelligence)
+- [Credit Fraud Detection](https://github.com/varadkamtikar/Credit-Fraud-Detection)
+- [Bank Note Authentication API](https://github.com/varadkamtikar/Bank-Note-Authentication-using-FastAPI) (FastAPI)
+- [Netflix Content Analysis](https://github.com/varadkamtikar/Tableau-Netflix-Content-Analysis) (Tableau)
 
 ### 5. Education
 - MSc Data Science — Technological University Dublin (2024–2026)
@@ -136,7 +135,7 @@ CSS Variables  — Theming and color management
 ### Option 1 — Open Locally (Instant)
 ```bash
 # Just download and open in any browser
-open varad_portfolio.html
+open index.html
 ```
 Or double-click the file in Finder / File Explorer.
 
@@ -157,21 +156,22 @@ No build step. No npm install. No configuration needed.
 
 ## 🌍 Deployment Guide
 
+This repo is already deployed via **GitHub Pages**, live at [varadkamtikar.github.io/Portfolio](https://varadkamtikar.github.io/Portfolio/). To fork this and deploy your own copy:
+
 ### 🥇 GitHub Pages (Recommended — Free)
 
-1. Create a new GitHub repository named `portfolio`
-2. Rename `varad_portfolio.html` → `index.html`
-3. Push to the `main` branch:
+1. Fork or create a repository containing `index.html`
+2. Push to the `main` branch:
 ```bash
 git init
 git add index.html README.md
 git commit -m "Initial portfolio commit"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/portfolio.git
+git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
 git push -u origin main
 ```
-4. Go to **Settings → Pages → Source** → select `main` branch → Save
-5. Live at: `https://YOUR_USERNAME.github.io/portfolio`
+3. Go to **Settings → Pages → Source** → select `main` branch → Save
+4. Live at: `https://YOUR_USERNAME.github.io/YOUR_REPO`
 
 > ✅ Free forever · ✅ HTTPS included · ✅ Custom domain supported
 
@@ -180,10 +180,9 @@ git push -u origin main
 ### ⚡ Netlify (Drag & Drop — 60 seconds)
 
 1. Go to [netlify.com](https://netlify.com) → Create free account
-2. Drag and drop `varad_portfolio.html` onto the dashboard
-3. Rename the file to `index.html` before uploading (optional but cleaner)
-4. Your site is live at `yourname.netlify.app`
-5. Optionally set a custom subdomain: `varad-kamtikar.netlify.app`
+2. Drag and drop `index.html` onto the dashboard
+3. Your site is live at `yourname.netlify.app`
+4. Optionally set a custom subdomain: `varad-kamtikar.netlify.app`
 
 > ✅ Instant deploy · ✅ Free HTTPS · ✅ Continuous deploy from Git
 
@@ -228,9 +227,10 @@ After deploying to any platform above:
 ## 📁 Project Structure
 
 ```
-portfolio/
+Portfolio/
 │
-├── index.html          # The entire portfolio (rename from varad_portfolio.html)
+├── index.html          # The entire portfolio
+├── profile-photo.png   # Hero section profile photo
 └── README.md           # This file
 ```
 
