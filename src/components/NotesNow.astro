@@ -1,0 +1,31 @@
+---
+import SectionHead from './SectionHead.astro';
+import { readFileSync } from 'node:fs';
+const raw = readFileSync('content/now.md', 'utf8');
+const [, fm, body] = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) ?? [];
+const updated = fm?.match(/updated:\s*(.+)/)?.[1] ?? '';
+const notes = ['The EEG pipeline', 'Netflix insights', 'From mainframe to ML'];
+---
+<section id="notes" class="wrap sec">
+  <SectionHead index="06" title="Notes & now" />
+  <div class="cols">
+    <div class="cards">
+      {notes.map((n) => <article><span class="mono">Coming soon</span><h3>{n}</h3></article>)}
+    </div>
+    <aside class="now">
+      <h3 class="mono">Now · updated {updated}</h3>
+      <p>{body?.trim()}</p>
+    </aside>
+  </div>
+</section>
+<style>
+  .cols { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+  article { border: 1px dashed var(--line); border-radius: 6px; padding: 1.25rem; display: grid; gap: 0.75rem; align-content: start; min-height: 9rem; }
+  article h3 { font-size: var(--step-1); }
+  article span { color: var(--muted); }
+  .now { border-left: 1px solid var(--accent); padding-left: 1.5rem; }
+  .now h3 { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); margin-bottom: 0.75rem; }
+  .now p { margin: 0; color: var(--muted); }
+  @media (max-width: 900px) { .cols, .cards { grid-template-columns: 1fr; } }
+</style>

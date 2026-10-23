@@ -1,0 +1,12 @@
+---
+const { index, title } = Astro.props;
+---
+<header class="sec-head">
+  <span class="sec-index mono">{index}</span>
+  <h2>{title}</h2>
+</header>
+<style>
+  .sec-head { position: sticky; top: 0; z-index: 5; display: flex; align-items: baseline; gap: 1.5rem; padding-block: 1rem; background: color-mix(in srgb, var(--bg) 92%, transparent); border-bottom: 1px solid var(--line); margin-bottom: 3rem; }
+  .sec-index { color: var(--accent); }
+  h2 { font-size: var(--step-3); }
+</style>

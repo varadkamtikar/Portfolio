@@ -1,0 +1,15 @@
+---
+import SectionHead from './SectionHead.astro';
+import certs from '../../content/certifications.json';
+---
+<section id="learning" class="wrap sec">
+  <SectionHead index="05" title="Certifications & learning" />
+  <ul class="certs">
+    {certs.map((c) => <li><span>{c.title}</span><span class="mono st">{c.status}</span></li>)}
+  </ul>
+</section>
+<style>
+  .certs { list-style: none; padding: 0; margin: 0; }
+  li { display: flex; justify-content: space-between; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); font-size: var(--step-1); font-family: var(--font-display); }
+  .st { color: var(--accent); font-family: var(--font-mono); font-size: var(--step--1); white-space: nowrap; align-self: center; }
+</style>

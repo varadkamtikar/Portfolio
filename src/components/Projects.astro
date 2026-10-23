@@ -1,0 +1,39 @@
+---
+import { getCollection } from 'astro:content';
+import SectionHead from './SectionHead.astro';
+const projects = (await getCollection('projects')).map((p) => p.data).sort((a, b) => a.roleRank.ds - b.roleRank.ds);
+---
+<section id="projects" class="wrap sec">
+  <SectionHead index="03" title="Projects" />
+  <div class="bento">
+    {projects.map((p) => (
+      <article class:list={['card', { feat: p.featured }]} data-ds={p.roleRank.ds} data-da={p.roleRank.da} data-stack={p.stack.join('|')}>
+        {p.featured && <span class="mono flag">Featured</span>}
+        <h3><a href={`/projects/${p.slug}`}>{p.title}</a></h3>
+        <p>{p.summary}</p>
+        <ul class="chips">{p.stack.map((s) => <li class="mono">{s}</li>)}</ul>
+        <p class="links mono">
+          <a href={`/projects/${p.slug}`}>Case study →</a>
+          <a href={p.repo} target="_blank" rel="noopener">GitHub ↗</a>
+          {p.live && <a href={p.live} target="_blank" rel="noopener">Live ↗</a>}
+        </p>
+      </article>
+    ))}
+  </div>
+</section>
+<style>
+  .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
+  .card { grid-column: span 2; display: flex; flex-direction: column; gap: 0.9rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); }
+  .card.feat { grid-column: span 4; grid-row: span 2; padding: 2.25rem; }
+  .card:nth-child(n+4) { grid-column: span 3; }
+  .feat h3 { font-size: var(--step-3); }
+  h3 { font-size: var(--step-2); }
+  h3 a { text-decoration: none; }
+  .card p { margin: 0; color: var(--muted); }
+  .flag { color: var(--accent); }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; }
+  .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.6rem; color: var(--muted); text-transform: none; }
+  .links { margin-top: auto !important; display: flex; gap: 1.25rem; flex-wrap: wrap; }
+  .links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
+  @media (max-width: 900px) { .card, .card.feat, .card:nth-child(n+4) { grid-column: span 6; grid-row: auto; } }
+</style>

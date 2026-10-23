@@ -1,0 +1,28 @@
+---
+import SectionHead from './SectionHead.astro';
+import profile from '../../content/profile.json';
+const c = profile.contact;
+---
+<section id="contact" class="wrap sec">
+  <SectionHead index="08" title="Contact" />
+  <p class="big">Let's build something.</p>
+  <ul class="rows">
+    <li><span class="mono">Email</span><a href={`mailto:${c.email}`}>{c.email}</a><button class="btn" type="button" data-copy={c.email}>Copy email</button></li>
+    <li><span class="mono">Phone</span><a href={`tel:${c.phone.replace(/\s/g, '')}`}>{c.phone}</a></li>
+    <li><span class="mono">LinkedIn</span><a href={c.linkedin} target="_blank" rel="noopener">linkedin.com/in/varadkamtikar</a></li>
+    <li><span class="mono">GitHub</span><a href={c.github} target="_blank" rel="noopener">github.com/varadkamtikar</a></li>
+  </ul>
+  <a class="btn btn-primary" href={profile.cv.file} download>Download CV</a>
+  <div id="toast" role="status" aria-live="polite" class="toast"></div>
+</section>
+<style>
+  .big { font-family: var(--font-display); font-size: var(--step-4); line-height: 1; margin: 0 0 3rem; }
+  .rows { list-style: none; padding: 0; margin: 0 0 2.5rem; }
+  .rows li { display: grid; grid-template-columns: 8rem 1fr auto; gap: 1rem; align-items: center; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+  .rows span { color: var(--muted); }
+  .rows a { text-decoration: none; font-size: var(--step-1); overflow-wrap: anywhere; }
+  .rows a:hover { color: var(--accent); }
+  .toast { position: fixed; bottom: 1.5rem; left: 50%; transform: translate(-50%, 2rem); opacity: 0; background: var(--accent); color: var(--accent-ink); padding: 0.6rem 1.2rem; border-radius: 999px; font-family: var(--font-mono); transition: .3s; z-index: 100; }
+  .toast:global(.show) { opacity: 1; transform: translate(-50%, 0); }
+  @media (max-width: 700px) { .rows li { grid-template-columns: 1fr; gap: 0.3rem; } }
+</style>

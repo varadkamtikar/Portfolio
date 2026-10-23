@@ -1,0 +1,30 @@
+---
+import SectionHead from './SectionHead.astro';
+import exp from '../../content/experience.json';
+---
+<section id="experience" class="wrap sec">
+  <SectionHead index="02" title="Experience" />
+  <ol class="tl">
+    {exp.map((e) => (
+      <li>
+        <p class="when mono">{e.start} — {e.end}</p>
+        <div>
+          <h3>{e.role}</h3>
+          <p class="org">{[e.org, e.place].filter(Boolean).join(' · ')} <span class="tag mono">{e.badge}</span></p>
+          <ul>{e.highlights.map((h) => <li>{h}</li>)}</ul>
+        </div>
+      </li>
+    ))}
+  </ol>
+</section>
+<style>
+  .tl { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
+  .tl > li { position: relative; display: grid; grid-template-columns: 11rem 1fr; gap: 2rem; padding: 0 0 3.5rem 2rem; }
+  .tl > li::before { content: ""; position: absolute; left: -5px; top: 0.5rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .when { color: var(--muted); margin: 0.25rem 0 0; }
+  h3 { font-size: var(--step-2); }
+  .org { color: var(--muted); margin: 0.4rem 0 1rem; }
+  .tag { border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.6rem; margin-left: 0.5rem; color: var(--accent); }
+  ul { margin: 0; padding-left: 1.1rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 62ch; }
+  @media (max-width: 700px) { .tl > li { grid-template-columns: 1fr; gap: 0.5rem; } }
+</style>

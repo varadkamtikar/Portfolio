@@ -1,0 +1,25 @@
+---
+import profile from '../../content/profile.json';
+const links = [['About', '#about'], ['Experience', '#experience'], ['Projects', '#projects'], ['Skills', '#skills'], ['Contact', '#contact']];
+---
+<nav class="nav" aria-label="Primary">
+  <a href="#top" class="logo" aria-label="Varad Kamtikar, home">VK</a>
+  <ul data-nav>
+    {links.map(([l, h]) => <li><a href={h}>{l}</a></li>)}
+  </ul>
+  <div class="right">
+    <button class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="Toggle light theme">◐</button>
+    <a class="btn" href={profile.cv.file} download>Download CV</a>
+  </div>
+</nav>
+<style>
+  .nav { position: fixed; inset: 0 0 auto 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.9rem var(--gutter); background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+  .logo { font-family: var(--font-display); font-size: 1.5rem; text-decoration: none; border: 1px solid var(--ink); border-radius: 50%; width: 2.6rem; height: 2.6rem; display: grid; place-items: center; }
+  ul { display: flex; gap: 1.75rem; list-style: none; margin: 0; padding: 0; }
+  ul a { font-family: var(--font-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.05em; text-decoration: none; color: var(--muted); }
+  ul a:hover, ul a[aria-current] { color: var(--ink); }
+  ul a[aria-current] { border-bottom: 1px solid var(--accent); }
+  .right { display: flex; align-items: center; gap: 0.75rem; }
+  .icon-btn { background: none; border: 1px solid var(--line); color: var(--ink); width: 2.6rem; height: 2.6rem; border-radius: 50%; cursor: pointer; font-size: 1.1rem; }
+  @media (max-width: 860px) { ul { display: none; } .right .btn { padding: 0.6rem 1rem; } }
+</style>
