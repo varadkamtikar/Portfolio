@@ -1,0 +1,8 @@
+[
+  { "category": "Languages", "skills": ["Python", "SQL", "R", "COBOL/JCL"] },
+  { "category": "ML & AI", "skills": ["Scikit-learn", "TensorFlow", "PyTorch", "CNN", "RNN/LSTM", "Transformers", "NLP", "LangChain", "RAG pipelines", "Hugging Face", "SMOTE", "Feature engineering"] },
+  { "category": "Data Engineering", "skills": ["Pandas", "NumPy", "FastAPI", "Streamlit"] },
+  { "category": "Databases", "skills": ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "DB2"] },
+  { "category": "Visualisation", "skills": ["Power BI", "Tableau", "Matplotlib", "Seaborn", "Plotly"] },
+  { "category": "Cloud & Tools", "skills": ["Azure", "AWS", "Docker", "Git", "Jupyter"] }
+]

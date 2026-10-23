@@ -1,0 +1,22 @@
+{
+  "name": "Varadkrishna Kamtikar",
+  "shortName": "Varad",
+  "title": "Data Scientist & Analytics Engineer",
+  "tagline": "Data Scientist & Analytics Engineer. From enterprise mainframes to machine learning pipelines.",
+  "available": true,
+  "availableLabel": "Available for opportunities",
+  "about": [
+    "MSc Data Science graduate from Technological University Dublin (2024–2026, Second Class Honours, First Division).",
+    "Former Application Development Analyst at Accenture in Pune, India (Jan 2022 – Jul 2024), promoted within the first year.",
+    "Passionate about machine learning, AI engineering, and turning data into decisions."
+  ],
+  "contact": {
+    "email": "varad.kamtikar@gmail.com",
+    "phone": "+353 89 201 6969",
+    "github": "https://github.com/varadkamtikar",
+    "linkedin": "https://www.linkedin.com/in/varadkamtikar/"
+  },
+  "cv": { "file": "/cv.pdf", "placeholder": true },
+  "siteUrl": "https://varadkamtikar.online",
+  "lastUpdated": "2026-10-23"
+}

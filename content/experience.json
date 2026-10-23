@@ -1,0 +1,54 @@
+[
+  {
+    "id": "acn-associate",
+    "role": "Application Development Associate",
+    "org": "Accenture",
+    "place": "Pune, India",
+    "start": "Jan 2022",
+    "end": "Mar 2023",
+    "badge": "First role",
+    "highlights": [
+      "Supported development and testing of mainframe applications at enterprise scale.",
+      "Worked with DB2 databases for data retrieval, debugging and validation tasks.",
+      "Assisted in application maintenance and performance optimisation across production systems."
+    ]
+  },
+  {
+    "id": "acn-analyst",
+    "role": "Application Development Analyst",
+    "org": "Accenture",
+    "place": "Pune, India",
+    "start": "Mar 2023",
+    "end": "Jul 2024",
+    "badge": "Promoted",
+    "highlights": [
+      "Developed and maintained enterprise applications using COBOL, JCL and DB2 on mainframe infrastructure.",
+      "Optimised SQL queries for data extraction and validation, improving data retrieval efficiency.",
+      "Improved system performance by modifying legacy code and resolving critical production issues.",
+      "Contributed across SDLC phases including development, testing, deployment and enhancement."
+    ]
+  },
+  {
+    "id": "tud-msc",
+    "role": "MSc Data Science",
+    "org": "Technological University Dublin",
+    "place": "Dublin, Ireland",
+    "start": "2024",
+    "end": "2026",
+    "badge": "Second Class Honours, First Division",
+    "highlights": [
+      "Dissertation: AI-based EEG signal classification across 32 subjects (DEAP dataset).",
+      "Applied machine learning, deep learning and analytics to real datasets."
+    ]
+  },
+  {
+    "id": "next",
+    "role": "Open to Data Science & Analytics roles",
+    "org": "",
+    "place": "",
+    "start": "2026",
+    "end": "+",
+    "badge": "Next",
+    "highlights": ["Looking for roles in data science, machine learning and analytics engineering."]
+  }
+]

@@ -1,0 +1,12 @@
+---
+import Base from '../layouts/Base.astro';
+import profile from '../../content/profile.json';
+---
+<Base title={`${profile.name} — ${profile.title}`} description={profile.tagline}>
+  <main id="main" class="wrap" style="padding-block:6rem">
+    <p class="mono" style="color:var(--accent)">01 — Design system check</p>
+    <h1 style="font-size:var(--step-5)">{profile.name}</h1>
+    <p style="max-width:40ch;color:var(--muted)">{profile.tagline}</p>
+    <a class="btn btn-primary" href="#main">View work</a>
+  </main>
+</Base>
