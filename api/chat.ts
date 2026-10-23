@@ -1,7 +1,8 @@
-import kb from '../public/kb.json';
-import { buildIndex, search } from '../src/lib/retrieve';
-import { SYSTEM_PROMPT, buildContext, createLimiter, fallbackAnswer, validate, type Turn } from '../src/lib/chat';
-import type { Chunk } from '../src/lib/kb';
+// Vercel runs this as native Node ESM: JSON needs an import attribute and relative imports need explicit extensions.
+import kb from '../public/kb.json' with { type: 'json' };
+import { buildIndex, search } from '../src/lib/retrieve.js';
+import { SYSTEM_PROMPT, buildContext, createLimiter, fallbackAnswer, validate, type Turn } from '../src/lib/chat.js';
+import type { Chunk } from '../src/lib/kb.js';
 
 const index = buildIndex((kb as { chunks: Chunk[] }).chunks);
 const limiter = createLimiter(20, 60 * 60 * 1000);

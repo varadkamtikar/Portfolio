@@ -10,8 +10,5 @@ live: "https://ireland-weather.streamlit.app"
 metrics: []
 pipeline: ["Live weather ingestion", "PostgreSQL", "XGBoost rainfall model", "Streamlit dashboards"]
 ---
-## Problem
-Real-time weather analytics with live ingestion pipelines, PostgreSQL, XGBoost rainfall forecasting, and dashboards.
-
 ## Approach
 Live data ingestion into PostgreSQL, XGBoost rainfall forecasting and Streamlit dashboards.

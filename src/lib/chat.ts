@@ -1,4 +1,4 @@
-import type { Chunk } from './kb';
+import type { Chunk } from './kb.js';
 
 export const MAX_INPUT = 500;
 export const CONTACT_EMAIL = 'varad.kamtikar@gmail.com';

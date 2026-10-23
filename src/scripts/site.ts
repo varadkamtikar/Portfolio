@@ -14,6 +14,17 @@ initChat();
 const { playHero } = initMotion();
 runLoader().then(playHero);
 
+// mobile menu
+const menuBtn = document.getElementById('menu-btn');
+const menu = document.getElementById('mobile-menu');
+if (menuBtn && menu) {
+  const setMenu = (open: boolean) => { menu.hidden = !open; menuBtn.setAttribute('aria-expanded', String(open)); };
+  menuBtn.addEventListener('click', () => setMenu(menu.hidden === true));
+  menu.addEventListener('click', (e) => { if ((e.target as Element).closest('a')) setMenu(false); });
+  addEventListener('keydown', (e) => { if (e.key === 'Escape' && !menu.hidden) { setMenu(false); menuBtn.focus(); } });
+  matchMedia('(min-width: 861px)').addEventListener('change', (e) => { if (e.matches) setMenu(false); });
+}
+
 // theme toggle
 document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((b) =>
   b.addEventListener('click', () => {
@@ -39,9 +50,10 @@ links.forEach((l) => { const s = document.querySelector(l.hash); if (s) io.obser
 const toast = document.getElementById('toast');
 document.querySelectorAll<HTMLButtonElement>('[data-copy]').forEach((b) =>
   b.addEventListener('click', async () => {
-    try { await navigator.clipboard.writeText(b.dataset.copy!); } catch { return; }
+    let ok = true;
+    try { await navigator.clipboard.writeText(b.dataset.copy!); } catch { ok = false; }
     if (!toast) return;
-    toast.textContent = 'Email copied';
+    toast.textContent = ok ? 'Email copied' : "Couldn't copy. Select the email above instead.";
     toast.classList.add('show');
     setTimeout(() => toast.classList.remove('show'), 2000);
   }),

@@ -33,12 +33,12 @@ const { Content } = await render(project);
 
     <section aria-labelledby="pipe-h"><h2 id="pipe-h" class="mono">Pipeline</h2><PipelineDiagram steps={p.pipeline} /></section>
     <section class="prose"><Content /></section>
-    <section aria-labelledby="met-h">
-      <h2 id="met-h" class="mono">Key metrics</h2>
-      {p.metrics.length > 0
-        ? <ul class="metrics">{p.metrics.map((m) => <li><strong class="num">{m.value}</strong><span class="mono">{m.label}</span></li>)}</ul>
-        : <p class="muted">[Metrics to be added]</p>}
-    </section>
+    {p.metrics.length > 0 && (
+      <section aria-labelledby="met-h">
+        <h2 id="met-h" class="mono">Key metrics</h2>
+        <ul class="metrics">{p.metrics.map((m) => <li><strong class="num">{m.value}</strong><span class="mono">{m.label}</span></li>)}</ul>
+      </section>
+    )}
     {p.slug === 'bank-note-authentication' && <BankNoteDemo />}
   </main>
   <Footer />
@@ -62,5 +62,4 @@ const { Content } = await render(project);
   .metrics { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; padding: 0; margin: 0; }
   .metrics li { border-top: 1px solid var(--accent); padding-top: 0.75rem; display: grid; gap: 0.25rem; }
   .num { font-family: var(--font-display); font-weight: 400; font-size: var(--step-4); line-height: 1; }
-  .muted { color: var(--muted); margin: 0; }
 </style>

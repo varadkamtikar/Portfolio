@@ -4,6 +4,7 @@ import { readFileSync } from 'node:fs';
 const raw = readFileSync('content/now.md', 'utf8');
 const [, fm, body] = raw.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/) ?? [];
 const updated = fm?.match(/updated:\s*(.+)/)?.[1] ?? '';
+const hasNow = !!body && !body.includes('[PLACEHOLDER]');
 const notes = ['The EEG pipeline', 'Netflix insights', 'From mainframe to ML'];
 ---
 <section id="notes" class="wrap sec">
@@ -12,14 +13,17 @@ const notes = ['The EEG pipeline', 'Netflix insights', 'From mainframe to ML'];
     <div class="cards">
       {notes.map((n) => <article><span class="mono">Coming soon</span><h3>{n}</h3></article>)}
     </div>
-    <aside class="now">
-      <h3 class="mono">Now · updated {updated}</h3>
-      <p>{body?.trim()}</p>
-    </aside>
+    {hasNow && (
+      <aside class="now">
+        <h3 class="mono">Now · updated {updated}</h3>
+        <p>{body?.trim()}</p>
+      </aside>
+    )}
   </div>
 </section>
 <style>
   .cols { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; }
+  .cols:not(:has(.now)) { grid-template-columns: 1fr; }
   .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
   article { border: 1px dashed var(--line); border-radius: 6px; padding: 1.25rem; display: grid; gap: 0.75rem; align-content: start; min-height: 9rem; }
   article h3 { font-size: var(--step-1); }

@@ -1,5 +1,5 @@
 // BM25 keyword retrieval over KB chunks. No external services or keys.
-import type { Chunk } from './kb';
+import type { Chunk } from './kb.js';
 
 const STOP = new Set(('a an the is are was were be been of to in on for and or do does did you your yours have has had what which who whom how tell me about with his he him she her it its this that these those can could would should i my we our their there at by from as not no so if any some all also please varad varadkrishna kamtikar s').split(' '));
 
