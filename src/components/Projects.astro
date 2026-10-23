@@ -1,13 +1,15 @@
 ---
 import { getCollection } from 'astro:content';
 import SectionHead from './SectionHead.astro';
+import { slot } from '../lib/explorer';
 const projects = (await getCollection('projects')).map((p) => p.data).sort((a, b) => a.roleRank.ds - b.roleRank.ds);
 ---
 <section id="projects" class="wrap sec">
   <SectionHead index="03" title="Projects" />
+  <p id="filter-status" class="mono status" role="status" aria-live="polite" hidden></p>
   <div class="bento">
-    {projects.map((p) => (
-      <article class:list={['card', { feat: p.featured }]} data-ds={p.roleRank.ds} data-da={p.roleRank.da} data-stack={p.stack.join('|')}>
+    {projects.map((p, i) => (
+      <article class:list={['card', `slot-${slot(i)}`]} data-id={p.slug} data-ds={p.roleRank.ds} data-da={p.roleRank.da} data-stack={p.stack.join('|')}>
         {p.featured && <span class="mono flag">Featured</span>}
         <h3><a href={`/projects/${p.slug}`}>{p.title}</a></h3>
         <p>{p.summary}</p>
@@ -20,13 +22,18 @@ const projects = (await getCollection('projects')).map((p) => p.data).sort((a, b
       </article>
     ))}
   </div>
+  <p id="empty" class="empty" hidden>No project here lists that skill yet.</p>
 </section>
 <style>
   .bento { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1rem; }
   .card { grid-column: span 2; display: flex; flex-direction: column; gap: 0.9rem; padding: 1.5rem; border: 1px solid var(--line); border-radius: 6px; background: var(--bg-2); }
-  .card.feat { grid-column: span 4; grid-row: span 2; padding: 2.25rem; }
-  .card:nth-child(n+4) { grid-column: span 3; }
-  .feat h3 { font-size: var(--step-3); }
+  .card.slot-lead { grid-column: span 4; grid-row: span 2; padding: 2.25rem; }
+  .card.slot-half { grid-column: span 3; }
+  .slot-lead h3 { font-size: var(--step-3); }
+  .card[hidden] { display: none; }
+  .status { margin: 0 0 1rem; color: var(--muted); }
+  .status button { font: inherit; background: none; border: 0; border-bottom: 1px solid var(--accent); color: var(--ink); cursor: pointer; margin-left: 0.75rem; text-transform: uppercase; }
+  .empty { color: var(--muted); }
   h3 { font-size: var(--step-2); }
   h3 a { text-decoration: none; }
   .card p { margin: 0; color: var(--muted); }
@@ -35,5 +42,5 @@ const projects = (await getCollection('projects')).map((p) => p.data).sort((a, b
   .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.6rem; color: var(--muted); text-transform: none; }
   .links { margin-top: auto !important; display: flex; gap: 1.25rem; flex-wrap: wrap; }
   .links a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--accent); }
-  @media (max-width: 900px) { .card, .card.feat, .card:nth-child(n+4) { grid-column: span 6; grid-row: auto; } }
+  @media (max-width: 900px) { .card, .card.slot-lead, .card.slot-half { grid-column: span 6; grid-row: auto; } }
 </style>

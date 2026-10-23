@@ -1,7 +1,7 @@
 @import "tailwindcss";
-@import "@fontsource-variable/fraunces";
-@import "@fontsource-variable/inter-tight";
-@import "@fontsource-variable/jetbrains-mono";
+@font-face { font-family: "Fraunces"; font-weight: 100 900; font-display: swap; src: url("../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2") format("woff2-variations"); }
+@font-face { font-family: "Inter Tight"; font-weight: 100 900; font-display: swap; src: url("../../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2") format("woff2-variations"); }
+@font-face { font-family: "JetBrains Mono"; font-weight: 100 800; font-display: swap; src: url("../../node_modules/@fontsource-variable/jetbrains-mono/files/jetbrains-mono-latin-wght-normal.woff2") format("woff2-variations"); }
 
 :root {
   --bg: #0b0c0b;
@@ -13,9 +13,9 @@
   --accent-ink: #04140c;
   --grain: 0.06;
 
-  --font-display: "Fraunces Variable", Georgia, serif;
-  --font-body: "Inter Tight Variable", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono Variable", ui-monospace, monospace;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-body: "Inter Tight", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
 
   --step--1: clamp(0.8rem, 0.77rem + 0.15vw, 0.9rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.125rem);
@@ -35,7 +35,7 @@
   --ink: #16150f;
   --muted: #5b594f;
   --line: #d6d0c2;
-  --accent: #0a7f4f;
+  --accent: #07733f;
   --accent-ink: #f4f0e8;
   --grain: 0.05;
 }

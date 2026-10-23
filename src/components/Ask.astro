@@ -1,8 +1,16 @@
 ---
 import SectionHead from './SectionHead.astro';
+import profile from '../../content/profile.json';
 ---
 <section id="ask" class="wrap sec">
   <SectionHead index="07" title="Ask my portfolio" />
-  <p class="note">[PLACEHOLDER] The RAG chat is built in stage 7. It will answer questions about Varad's work, citing the relevant project.</p>
+  <p class="lead">Questions about my work? Ask the assistant. It answers only from this site's content and links to the source.</p>
+  <ul class="qs">
+    {profile.chatSuggestions.map((q) => <li><button type="button" class="chip" data-suggest={q}>{q}</button></li>)}
+  </ul>
+  <button type="button" class="btn btn-primary" data-chat-open>Open chat</button>
 </section>
-<style>.note { color: var(--muted); max-width: 55ch; }</style>
+<style>
+  .lead { font-family: var(--font-display); font-size: var(--step-2); max-width: 32ch; margin: 0 0 1.75rem; line-height: 1.2; }
+  .qs { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+</style>

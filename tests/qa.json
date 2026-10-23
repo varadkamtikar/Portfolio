@@ -1,0 +1,17 @@
+[
+  { "q": "What did you build for your MSc?", "expect": ["DEAP"], "source": "project-eeg-signal-classification" },
+  { "q": "Have you worked with time-series data?", "expect": ["LSTM"], "source": "project-indian-stock-market-predictor" },
+  { "q": "Tell me about your Accenture experience", "expect": ["Accenture"], "source": "experience" },
+  { "q": "What's your mainframe background?", "expect": ["COBOL"], "source": "experience" },
+  { "q": "Where did you do your bachelor's degree?", "expect": ["MGM's College of Engineering"], "source": "education" },
+  { "q": "Is Varad available for work?", "expect": ["open to Data Science"], "source": "profile" },
+  { "q": "What is the Ireland Housing Intelligence project?", "expect": ["RTB"], "source": "project-ireland-housing-intelligence" },
+  { "q": "Which project forecasts rainfall?", "expect": ["rainfall"], "source": "project-ireland-weather-hub" },
+  { "q": "What certifications does Varad have?", "expect": ["AZ-900"], "source": "certifications" },
+  { "q": "How can I contact Varad?", "expect": ["varad.kamtikar@gmail.com"], "source": "contact" },
+  { "q": "Which projects use SMOTE?", "expect": ["SMOTE"], "source": "project-credit-fraud-detection" },
+  { "q": "Does Varad know Tableau?", "expect": ["Tableau"], "source": "project-netflix-content-analysis" },
+  { "q": "Tell me about the Bank Note API", "expect": ["FastAPI"], "source": "project-bank-note-authentication" },
+  { "q": "What cloud platforms does Varad use?", "expect": ["Azure", "AWS"], "source": "skills" },
+  { "q": "When was Varad promoted at Accenture?", "expect": ["Mar 2023"], "source": "experience" }
+]

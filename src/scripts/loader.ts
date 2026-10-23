@@ -24,12 +24,15 @@ export function runLoader(): Promise<void> {
   const state = { amp: 1 };
   const accent = getComputedStyle(document.documentElement).getPropertyValue('--accent').trim();
 
+  // size once: reading layout or resetting the canvas every frame forces a reflow per tick
+  const dpr = Math.min(devicePixelRatio || 1, 2);
+  const w = canvas.clientWidth, h = canvas.clientHeight;
+  canvas.width = w * dpr; canvas.height = h * dpr;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.strokeStyle = accent; ctx.lineWidth = 1.5;
+
   const draw = () => {
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    const w = canvas.clientWidth, h = canvas.clientHeight;
-    canvas.width = w * dpr; canvas.height = h * dpr;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.strokeStyle = accent; ctx.lineWidth = 1.5;
+    ctx.clearRect(0, 0, w, h);
     const t = performance.now() / 400;
     ctx.beginPath();
     for (let x = 0; x <= w; x += 2) {
@@ -54,10 +57,10 @@ export function runLoader(): Promise<void> {
       setTimeout(() => remove(el), 550);
       resolve();
     }
-    tl.to(state, { amp: 0, duration: 1.4, ease: 'power2.inOut' })
-      .to(letters, { opacity: 1, duration: 0.4, stagger: 0.04 }, 0.2)
-      .to({}, { duration: 0.3 });
-    setTimeout(finish, 3500); // hard cap, independent of rAF
+    tl.to(state, { amp: 0, duration: 0.9, ease: 'power2.inOut' })
+      .to(letters, { opacity: 1, duration: 0.25, stagger: 0.02 }, 0.1)
+      .to({}, { duration: 0.15 });
+    setTimeout(finish, 2500); // hard cap, independent of rAF
     el.addEventListener('click', finish);
     addEventListener('keydown', finish, { once: true });
   });

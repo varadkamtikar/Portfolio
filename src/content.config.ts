@@ -13,6 +13,7 @@ const projects = defineCollection({
     repo: z.string().url(),
     live: z.string(),
     metrics: z.array(z.object({ label: z.string(), value: z.string() })),
+    pipeline: z.array(z.string()),
   }),
 });
 

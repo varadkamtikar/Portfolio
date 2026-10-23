@@ -5,3 +5,4 @@ dist
 .env
 .DS_Store
 .code-review-graph
+public/kb.json

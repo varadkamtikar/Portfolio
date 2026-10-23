@@ -1,16 +1,18 @@
 ---
+import { hasCv } from '../lib/site';
 import profile from '../../content/profile.json';
+const base = Astro.url.pathname === '/' ? '' : '/';
 const links = [['About', '#about'], ['Experience', '#experience'], ['Projects', '#projects'], ['Skills', '#skills'], ['Contact', '#contact']];
 ---
 <nav class="nav" aria-label="Primary">
-  <a href="#top" class="logo" aria-label="Varad Kamtikar, home">VK</a>
+  <a href={`${base}#top`} class="logo" aria-label="Varad Kamtikar, home">VK</a>
   <ul data-nav>
-    {links.map(([l, h]) => <li><a href={h}>{l}</a></li>)}
+    {links.map(([l, h]) => <li><a href={`${base}${h}`}>{l}</a></li>)}
   </ul>
   <div class="right">
     <button class="kbd mono" data-palette-open aria-label="Open command palette">⌘K</button>
     <button class="icon-btn" data-theme-toggle aria-pressed="false" aria-label="Toggle light theme">◐</button>
-    <a class="btn" href={profile.cv.file} download>Download CV</a>
+    {hasCv && <a class="btn" href={profile.cv.file} download>Download CV</a>}
   </div>
 </nav>
 <style>

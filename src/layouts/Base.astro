@@ -1,7 +1,12 @@
 ---
 import '../styles/global.css';
-interface Props { title: string; description: string; }
-const { title, description } = Astro.props;
+import frauncesFont from '../../node_modules/@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url';
+import interFont from '../../node_modules/@fontsource-variable/inter-tight/files/inter-tight-latin-wght-normal.woff2?url';
+
+interface Props { title: string; description: string; image?: string; type?: 'website' | 'article'; jsonLd?: object }
+const { title, description, image = '/og.png', type = 'website', jsonLd } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const ogImage = new URL(image, Astro.site).href;
 ---
 <!doctype html>
 <html lang="en" data-theme="dark">
@@ -10,14 +15,34 @@ const { title, description } = Astro.props;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta name="theme-color" content="#0b0c0b" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="preload" href={frauncesFont} as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href={interFont} as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Varadkrishna Kamtikar" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Varadkrishna Kamtikar, Data Scientist and Analytics Engineer" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+
     <script is:inline>
       document.documentElement.classList.add('js', 'loading');
       setTimeout(function () { var l = document.getElementById('loader'); if (l) { l.remove(); } document.documentElement.classList.remove('loading'); }, 6000);
       try {
         var t = localStorage.getItem('theme');
-        if (!t) t = 'dark';
-        document.documentElement.dataset.theme = t;
+        if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
       } catch (e) {}
     </script>
   </head>

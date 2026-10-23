@@ -2,11 +2,15 @@ import { initWaveforms } from './waveform';
 import { initMotion } from './motion';
 import { initCursor } from './cursor';
 import { initPalette } from './palette';
+import { initChat } from './chat';
+import { initExplorer } from './explorer';
 import { runLoader } from './loader';
 
 initWaveforms();
 initCursor();
 initPalette();
+initExplorer();
+initChat();
 const { playHero } = initMotion();
 runLoader().then(playHero);
 
@@ -21,7 +25,7 @@ document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((b) 
 );
 
 // active nav link
-const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav] a[href^="#"]')];
+const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-nav] a')].filter((l) => l.hash && document.querySelector(l.hash));
 const io = new IntersectionObserver(
   (es) => es.forEach((e) => {
     if (!e.isIntersecting) return;

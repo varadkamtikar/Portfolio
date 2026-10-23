@@ -11,17 +11,37 @@ import Learning from '../components/Learning.astro';
 import NotesNow from '../components/NotesNow.astro';
 import Ask from '../components/Ask.astro';
 import Contact from '../components/Contact.astro';
+import RoleToggle from '../components/RoleToggle.astro';
 import Footer from '../components/Footer.astro';
 import Loader from '../components/Loader.astro';
+import ChatPanel from '../components/ChatPanel.astro';
 import Palette from '../components/Palette.astro';
 import Divider from '../components/Divider.astro';
+import edu from '../../content/education.json';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.title,
+  description: profile.tagline,
+  url: profile.siteUrl,
+  image: `${profile.siteUrl}/og.png`,
+  email: `mailto:${profile.contact.email}`,
+  sameAs: [profile.contact.github, profile.contact.linkedin],
+  alumniOf: edu.map((e) => ({ '@type': 'CollegeOrUniversity', name: e.school })),
+  knowsAbout: ['Data science', 'Machine learning', 'Data analytics', 'Python', 'SQL'],
+};
+const description = `${profile.tagline} MSc Data Science, Technological University Dublin.`;
 ---
-<Base title={`${profile.name} — ${profile.title}`} description={profile.tagline}>
+<Base title={`${profile.name} — ${profile.title}`} description={description} jsonLd={jsonLd}>
   <Loader />
   <Nav />
   <Palette />
+  <ChatPanel />
   <main id="main">
     <Hero />
+    <RoleToggle />
     <Divider />
     <About />
     <Experience />

@@ -4,19 +4,29 @@ import skills from '../../content/skills.json';
 ---
 <section id="skills" class="wrap sec">
   <SectionHead index="04" title="Skills" />
+  <p class="help mono">Select a skill to filter the projects that use it.</p>
   <div class="groups">
     {skills.map((g) => (
       <div>
         <h3 class="mono">{g.category}</h3>
-        <ul>{g.skills.map((s) => <li><button type="button" data-skill={s}>{s}</button></li>)}</ul>
+        <ul>
+          {g.skills.map((s) => (
+            <li>
+              <button type="button" aria-pressed="false" data-skill={s.name} data-match={[s.name, ...((s as { aliases?: string[] }).aliases ?? [])].join('|')} data-roles={s.roles.join(' ')}>{s.name}</button>
+            </li>
+          ))}
+        </ul>
       </div>
     ))}
   </div>
 </section>
 <style>
+  .help { color: var(--muted); margin: 0 0 2rem; }
   .groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.5rem; }
   h3 { font-family: var(--font-mono); font-size: var(--step--1); color: var(--accent); margin-bottom: 1rem; }
   ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  button { font: inherit; font-size: var(--step--1); background: none; color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.9rem; cursor: pointer; }
-  button:hover { border-color: var(--accent); }
+  button { font: inherit; font-size: var(--step--1); background: none; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0.35rem 0.9rem; cursor: pointer; transition: border-color .2s, color .2s, background .2s; }
+  button:hover { border-color: var(--accent); color: var(--ink); }
+  button.rel { color: var(--ink); border-color: color-mix(in srgb, var(--accent) 55%, var(--line)); }
+  button[aria-pressed='true'] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); font-weight: 600; }
 </style>

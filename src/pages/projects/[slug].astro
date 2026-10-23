@@ -1,0 +1,66 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import Loader from '../../components/Loader.astro';
+import ChatPanel from '../../components/ChatPanel.astro';
+import Palette from '../../components/Palette.astro';
+import PipelineDiagram from '../../components/PipelineDiagram.astro';
+import BankNoteDemo from '../../components/BankNoteDemo.astro';
+
+export async function getStaticPaths() {
+  return (await getCollection('projects')).map((p) => ({ params: { slug: p.data.slug }, props: { project: p } }));
+}
+const { project } = Astro.props;
+const p = project.data;
+const { Content } = await render(project);
+---
+<Base title={`${p.title} — Varadkrishna Kamtikar`} description={p.summary}>
+  <Nav />
+  <Palette />
+  <ChatPanel />
+  <main id="main" class="wrap case">
+    <a class="back mono" href="/#projects">← All projects</a>
+    <p class="mono kicker">Case study{p.featured ? ' · Featured' : ''}</p>
+    <h1>{p.title}</h1>
+    <p class="lead">{p.summary}</p>
+    <ul class="chips">{p.stack.map((s) => <li class="mono">{s}</li>)}</ul>
+    <p class="links">
+      <a class="btn btn-primary" href={p.repo} target="_blank" rel="noopener">GitHub ↗</a>
+      {p.live && <a class="btn" href={p.live} target="_blank" rel="noopener">Live app ↗</a>}
+    </p>
+
+    <section aria-labelledby="pipe-h"><h2 id="pipe-h" class="mono">Pipeline</h2><PipelineDiagram steps={p.pipeline} /></section>
+    <section class="prose"><Content /></section>
+    <section aria-labelledby="met-h">
+      <h2 id="met-h" class="mono">Key metrics</h2>
+      {p.metrics.length > 0
+        ? <ul class="metrics">{p.metrics.map((m) => <li><strong class="num">{m.value}</strong><span class="mono">{m.label}</span></li>)}</ul>
+        : <p class="muted">[Metrics to be added]</p>}
+    </section>
+    {p.slug === 'bank-note-authentication' && <BankNoteDemo />}
+  </main>
+  <Footer />
+  <Loader />
+  <script>import '../../scripts/site';</script>
+</Base>
+<style>
+  .case { padding-top: 7rem; padding-bottom: 4rem; display: grid; gap: 2.5rem; max-width: 980px; }
+  .case > * { min-width: 0; }
+  h1 { overflow-wrap: anywhere; }
+  .back, .kicker { color: var(--muted); text-decoration: none; margin: 0; }
+  .kicker { color: var(--accent); }
+  h1 { font-size: var(--step-4); }
+  .lead { font-size: var(--step-1); color: var(--muted); margin: 0; max-width: 55ch; }
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: 0.4rem; padding: 0; margin: 0; }
+  .chips li { border: 1px solid var(--line); border-radius: 999px; padding: 0.15rem 0.7rem; color: var(--muted); text-transform: none; }
+  .links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin: 0; }
+  h2.mono { color: var(--accent); margin-bottom: 1rem; }
+  .prose :global(h2) { font-family: var(--font-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent); margin: 0 0 0.75rem; }
+  .prose :global(p) { margin: 0 0 2rem; max-width: 62ch; color: var(--muted); }
+  .metrics { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; padding: 0; margin: 0; }
+  .metrics li { border-top: 1px solid var(--accent); padding-top: 0.75rem; display: grid; gap: 0.25rem; }
+  .num { font-family: var(--font-display); font-weight: 400; font-size: var(--step-4); line-height: 1; }
+  .muted { color: var(--muted); margin: 0; }
+</style>

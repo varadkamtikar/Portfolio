@@ -1,4 +1,5 @@
 ---
+import { hasCv } from '../lib/site';
 import { Image } from 'astro:assets';
 import photo from '../assets/profile-photo.png';
 import profile from '../../content/profile.json';
@@ -10,10 +11,10 @@ import profile from '../../content/profile.json';
   <canvas data-waveform data-amp="0.35" class="wave" role="img" aria-label="Animated EEG-style waveform"></canvas>
   <div class="ctas">
     <a class="btn btn-primary" href="#projects">View work</a>
-    <a class="btn" href="#ask">Ask my portfolio</a>
-    <a class="btn" href={profile.cv.file} download>Download CV</a>
+    <a class="btn" href="#ask" data-chat-open>Ask my portfolio</a>
+    {hasCv && <a class="btn" href={profile.cv.file} download>Download CV</a>}
   </div>
-  <Image class="photo" src={photo} alt="Portrait of Varadkrishna Kamtikar" width={220} height={220} loading="eager" />
+  <Image class="photo" src={photo} alt="Portrait of Varadkrishna Kamtikar" width={220} height={220} format="webp" quality={80} densities={[1, 2]} loading="eager" fetchpriority="high" />
 </section>
 <style>
   .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: 1.5rem; padding-top: 7rem; padding-bottom: 3rem; }

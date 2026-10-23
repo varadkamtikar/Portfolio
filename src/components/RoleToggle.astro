@@ -1,0 +1,16 @@
+<div class="wrap role" role="group" aria-label="Portfolio focus">
+  <span class="mono lbl">Focus</span>
+  <div class="seg">
+    <button type="button" data-role="ds" aria-pressed="true">Data Science</button>
+    <button type="button" data-role="da" aria-pressed="false">Data Analytics</button>
+  </div>
+  <span class="mono hint">Reorders projects and highlights relevant skills</span>
+</div>
+<style>
+  .role { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding-block: 1.25rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .lbl { color: var(--accent); }
+  .hint { color: var(--muted); font-size: 0.72rem; }
+  .seg { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; }
+  .seg button { font: inherit; font-family: var(--font-mono); font-size: var(--step--1); text-transform: uppercase; letter-spacing: 0.04em; background: none; color: var(--muted); border: 0; border-radius: 999px; padding: 0.5rem 1.1rem; cursor: pointer; }
+  .seg button[aria-pressed='true'] { background: var(--accent); color: var(--accent-ink); font-weight: 600; }
+</style>

@@ -9,14 +9,16 @@ export function initPalette() {
 
   const go = (id: string) => () => { document.dispatchEvent(new CustomEvent('goto', { detail: id })); };
   const items: Item[] = [
-    ...[['About', 'about'], ['Experience', 'experience'], ['Projects', 'projects'], ['Skills', 'skills'], ['Certifications', 'learning'], ['Notes & now', 'notes'], ['Ask my portfolio', 'ask'], ['Contact', 'contact']]
+    ...[['About', 'about'], ['Experience', 'experience'], ['Projects', 'projects'], ['Skills', 'skills'], ['Certifications', 'learning'], ['Notes & now', 'notes'], ['Contact', 'contact']]
       .map(([l, id]) => ({ label: l, hint: 'Go to', run: go(id) })),
+    { label: 'Ask my portfolio', hint: 'Action', run: () => document.dispatchEvent(new Event('chat:open')) },
     { label: 'Toggle theme', hint: 'Action', run: () => q('[data-theme-toggle]')?.click() },
-    { label: 'Download CV', hint: 'Action', run: () => q('a[download]')?.click() },
     { label: 'Copy email', hint: 'Action', run: () => q('[data-copy]')?.click() },
     { label: 'GitHub', hint: 'Open', run: () => open(q('#contact a[href*="github.com"]')?.getAttribute('href') ?? '', '_blank', 'noopener') },
     { label: 'LinkedIn', hint: 'Open', run: () => open(q('#contact a[href*="linkedin.com"]')?.getAttribute('href') ?? '', '_blank', 'noopener') },
   ];
+
+  if (q('a[download]')) items.splice(items.findIndex((i) => i.label === 'Toggle theme') + 1, 0, { label: 'Download CV', hint: 'Action', run: () => q('a[download]')?.click() });
 
   let shown: Item[] = items, active = 0;
   const render = () => {
@@ -36,10 +38,10 @@ export function initPalette() {
     list.children[active]?.scrollIntoView({ block: 'nearest' });
   };
   const choose = (i: number) => { const it = shown[i]; if (!it) return; close(); setTimeout(it.run, 50); };
-  const openIt = () => { input.value = ''; shown = items; active = 0; render(); dlg.showModal(); document.dispatchEvent(new Event('palette:open')); input.focus(); };
+  const openIt = () => { input.value = ''; shown = items; active = 0; render(); dlg.showModal(); document.dispatchEvent(new Event('overlay:open')); input.focus(); };
   const close = () => dlg.open && dlg.close();
 
-  dlg.addEventListener('close', () => document.dispatchEvent(new Event('palette:close')));
+  dlg.addEventListener('close', () => document.dispatchEvent(new Event('overlay:close')));
   dlg.addEventListener('click', (e) => { if (e.target === dlg) close(); });
   input.addEventListener('input', () => {
     const s = input.value.trim().toLowerCase();

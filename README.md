@@ -1,347 +1,103 @@
-# 🚀 Varadkrishna Kamtikar — Personal Portfolio Website
+# Varadkrishna Kamtikar — Portfolio
 
-> A fully animated, single-page personal portfolio built with pure HTML, CSS, and Vanilla JavaScript. No frameworks. No dependencies. Just open and run.
+Personal site for [varadkamtikar.online](https://varadkamtikar.online): an editorial dark/light design with an EEG-waveform motif, case studies, a skills explorer, and an "Ask my portfolio" chat that answers from the site's own content (RAG).
 
-![Portfolio Preview](https://img.shields.io/badge/Status-Live-brightgreen?style=flat-square)
-![HTML](https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
-![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)
+**Stack:** Astro 7 · TypeScript · Tailwind v4 (base layer only; components use custom CSS) · GSAP + ScrollTrigger · Lenis · Vercel serverless function for the chat · Vitest.
 
----
+## Quick start
 
-## 📋 Table of Contents
-
-- [About](#-about)
-- [Live Demo](#-live-demo)
-- [Features](#-features)
-- [Sections](#-sections)
-- [Tech Stack](#-tech-stack)
-- [Getting Started](#-getting-started)
-- [Deployment Guide](#-deployment-guide)
-- [Project Structure](#-project-structure)
-- [Customization](#-customization)
-- [Performance](#-performance)
-- [Contact](#-contact)
-
----
-
-## 👤 About
-
-This is the personal portfolio website of **Varadkrishna Kamtikar**, an MSc Data Science graduate from Technological University Dublin with 2.5+ years of industry experience at Accenture. The portfolio showcases skills in Machine Learning, Data Analytics, Deep Learning, and enterprise software development.
-
-Built as a **single self-contained HTML file** — no build tools, no package managers, no frameworks required.
-
----
-
-## 🌐 Live Demo
-
-> 🔗 **[View Live Portfolio →](https://varadkamtikar.github.io/Portfolio/)**
-
----
-
-## ✨ Features
-
-### Animations & Effects
-| Feature | Description |
-|---|---|
-| 🌀 Loading Screen | Full-screen loader with initials "VK", animated gradient progress bar, fades out after 2 seconds |
-| 🖱️ Custom Cursor | Glowing cyan dot + larger trailing ring that smoothly follows mouse movement |
-| 🎆 Particle Network | Live canvas animation — floating dots in indigo, pink, cyan, amber with connecting lines |
-| ✨ Hero Name Shimmer | Display name animates with shifting gradient (white → cyan → indigo → pink) |
-| 🃏 3D Floating Card | Hero card continuously rotates in 3D space using `rotate3d()` keyframes |
-| 🌀 Spinning Dashed Ring | Dashed ring orbits around the hero card with a glowing cyan dot indicator |
-| 📜 Scroll Reveal | All sections fade-up, slide-left, or slide-right into view via IntersectionObserver |
-| 📊 Skill Bars | Animate to target width only when scrolled into view, with shimmer sweep after fill |
-| 🏷️ Marquee | Infinite horizontal scroll of companies and technologies |
-| 🃏 Project Card Sweep | Gradient line sweeps across top border of project cards on hover |
-| 💫 Ripple Rings | Three expanding ripple rings pulse around the contact avatar |
-| 🧭 Navbar Slide | Navbar slides down from top on page load |
-
-### Design
-- **Dark theme** with deep space background (`#080812`)
-- **Color palette:** Deep Indigo · Hot Pink · Cyan · Amber
-- **Typography:** Syne (headings) + DM Sans (body) via Google Fonts
-- **Noise texture overlay** for depth and visual richness
-- **Custom styled scrollbar** with gradient thumb
-- **Frosted glass navbar** with backdrop blur
-- **Fully responsive** — mobile-first, single column on small screens
-
----
-
-## 📑 Sections
-
-### 1. Hero
-Two-column layout with left content and right 3D floating card.
-- Availability badge with pulsing green dot
-- Large display name with shimmer gradient animation
-- Job title and description
-- Two CTA buttons (Get In Touch, View Projects)
-- 3D rotating card with name, role, and key stats (2.5+ yrs exp, 7+ projects, 8.04 GPA)
-- Spinning dashed ring and glowing orb background
-
-### 2. Skills
-- Animated skill bars (fill on scroll): Python 92%, SQL / Advanced SQL 88%, R 72%, JavaScript/HTML/CSS 65%, COBOL/JCL 80%, Machine Learning (Scikit-learn) 88%, Deep Learning (TensorFlow/PyTorch) 80%, NLP/Transformers 75%, Power BI/Tableau 85%, Data Analysis & EDA 90%
-- Shimmer sweep animation after each bar fills
-- Tech chip cloud of 30+ technologies — each floats upward on hover
-
-### 3. Experience
-Vertical timeline with animated gradient left border.
-- **Application Development Analyst** at Accenture (Mar 2023 – Jul 2024)
-- **Application Development Associate** at Accenture (Jan 2022 – Mar 2023)
-- Each card slides right and glows on hover
-- Highlight badge chips (Promoted / First Role)
-
-### 4. Projects
-3-column responsive grid, each card linking out to its GitHub repo.
-- [AI-Based EEG Signal Classification](https://github.com/varadkamtikar/MSc-Dissertation) (MSc Dissertation)
-- [Indian Stock Market Predictor](https://github.com/varadkamtikar/Indian-Stock-Market-Predictor) (LSTM-based)
-- [Ireland Weather Hub](https://github.com/varadkamtikar/Ireland-Weather-Hub) (real-time weather analytics)
-- [Ireland Housing Intelligence](https://github.com/varadkamtikar/Ireland-Housing-Intelligence)
-- [Credit Fraud Detection](https://github.com/varadkamtikar/Credit-Fraud-Detection)
-- [Bank Note Authentication API](https://github.com/varadkamtikar/Bank-Note-Authentication-using-FastAPI) (FastAPI)
-- [Netflix Content Analysis](https://github.com/varadkamtikar/Tableau-Netflix-Content-Analysis) (Tableau)
-
-### 5. Education
-- MSc Data Science — Technological University Dublin (2024–2026)
-- B.Tech CSE — MGM's College of Engineering, Nanded (2017–2021)
-- Dissertation descriptions included for both degrees
-- Certifications: Azure AZ-900, Google Data Analytics (In Progress)
-
-### 6. Contact
-- Email, Phone, Location, and Availability info cards (slide right on hover)
-- Pulsing avatar initials with 3 expanding ripple rings
-- Links to connect via email directly
-
----
-
-## 🛠️ Tech Stack
-
-```
-HTML5          — Structure and semantic markup
-CSS3           — Animations, keyframes, variables, grid, flexbox
-Vanilla JS     — Cursor, particles, IntersectionObserver, scroll effects
-Canvas API     — Particle network background animation
-Google Fonts   — Syne (headings) + DM Sans (body)
-CSS Variables  — Theming and color management
-```
-
-**Zero external JavaScript libraries.** No jQuery, no GSAP, no Three.js, no frameworks.
-
----
-
-## 🚀 Getting Started
-
-### Option 1 — Open Locally (Instant)
 ```bash
-# Just download and open in any browser
-open index.html
-```
-Or double-click the file in Finder / File Explorer.
-
-### Option 2 — Local Development Server
-```bash
-# Python 3
-python -m http.server 8000
-
-# Node.js (npx)
-npx serve .
-
-# Then open http://localhost:8000
+npm install
+npm run dev        # site at http://localhost:4321 (the /api routes do NOT run here)
+npm run build      # builds public/kb.json, then the static site into dist/
+npm run preview    # serve dist/
+npm test           # rebuilds kb.json, then runs all tests
 ```
 
-No build step. No npm install. No configuration needed.
+To exercise `/api/chat` and `/api/banknote` locally, use the Vercel CLI (`npx vercel dev`) with a `.env` copied from `.env.example`.
 
----
+DOM tests (`tests/*-dom.test.ts`) read the built page, so run `npm run build` once before `npm test`; they skip themselves if `dist/` is missing.
 
-## 🌍 Deployment Guide
+## Editing content
 
-This repo is already deployed via **GitHub Pages**, live at [varadkamtikar.github.io/Portfolio](https://varadkamtikar.github.io/Portfolio/). To fork this and deploy your own copy:
+All text lives in `content/`. You never need to touch components to change words.
 
-### 🥇 GitHub Pages (Recommended — Free)
-
-1. Fork or create a repository containing `index.html`
-2. Push to the `main` branch:
-```bash
-git init
-git add index.html README.md
-git commit -m "Initial portfolio commit"
-git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
-git push -u origin main
-```
-3. Go to **Settings → Pages → Source** → select `main` branch → Save
-4. Live at: `https://YOUR_USERNAME.github.io/YOUR_REPO`
-
-> ✅ Free forever · ✅ HTTPS included · ✅ Custom domain supported
-
----
-
-### ⚡ Netlify (Drag & Drop — 60 seconds)
-
-1. Go to [netlify.com](https://netlify.com) → Create free account
-2. Drag and drop `index.html` onto the dashboard
-3. Your site is live at `yourname.netlify.app`
-4. Optionally set a custom subdomain: `varad-kamtikar.netlify.app`
-
-> ✅ Instant deploy · ✅ Free HTTPS · ✅ Continuous deploy from Git
-
----
-
-### 🔺 Vercel
-
-1. Go to [vercel.com](https://vercel.com) → Sign up with GitHub
-2. Import your portfolio GitHub repo
-3. Click Deploy (zero config needed)
-4. Live at: `yourname.vercel.app`
-
----
-
-### ☁️ Cloudflare Pages
-
-1. Go to [pages.cloudflare.com](https://pages.cloudflare.com)
-2. Connect GitHub repo or upload directly
-3. Build settings: leave all blank (static HTML, no build needed)
-4. Live with Cloudflare's global CDN for ultra-fast loading
-
----
-
-### 🌐 Custom Domain (Optional)
-
-After deploying to any platform above:
-
-1. Buy a domain from [Namecheap](https://namecheap.com) (~$10–12/year) or [Google Domains](https://domains.google)
-2. Example: `varadkamtikar.com`
-3. Add a CNAME record pointing your domain to your hosting URL
-4. Enable HTTPS (free on all platforms above)
-
-| Platform | Custom Domain Setup |
+| File | What it controls |
 |---|---|
-| GitHub Pages | Settings → Pages → Custom domain |
-| Netlify | Site settings → Domain management → Add domain |
-| Vercel | Project settings → Domains → Add |
-| Cloudflare Pages | Custom domains tab → Add domain |
+| `content/profile.json` | Name, tagline, about paragraphs, email/phone/links, availability badge, chat suggestion chips, CV path, "last updated" date |
+| `content/experience.json` | Timeline nodes and bullets (including MSc and "open to roles") |
+| `content/education.json` | Degrees |
+| `content/certifications.json` | Certifications and learning |
+| `content/skills.json` | Skill groups. `roles` (`ds`, `da`) drive the role toggle highlight; `aliases` let a skill match project stack names |
+| `content/projects/*.md` | One file per project: frontmatter (title, summary, stack, repo, live URL, `roleRank`, `pipeline`, `metrics`) plus a Markdown body of `## Problem` / `## Approach` |
+| `content/faqs.json` | Extra Q&A the chat can draw on |
+| `content/now.md` | The "Now" block. Edit the text and the `updated` date |
 
----
+**Adding project metrics:** in a project's frontmatter, replace `metrics: []` with, for example:
 
-## 📁 Project Structure
-
-```
-Portfolio/
-│
-├── index.html          # The entire portfolio
-├── profile-photo.png   # Hero section profile photo
-└── README.md           # This file
-```
-
-Since everything is in a single HTML file, the structure is self-contained:
-
-```
-index.html
-├── <head>
-│   ├── Google Fonts (Syne + DM Sans)
-│   └── <style> — All CSS (variables, animations, layout, responsive)
-│
-├── <body>
-│   ├── #cursor-dot / #cursor-ring     — Custom cursor elements
-│   ├── #loader                         — Loading screen
-│   ├── #particle-canvas               — Background particle network
-│   ├── <nav>                          — Fixed frosted-glass navbar
-│   ├── #hero                          — Hero section with 3D card
-│   ├── .marquee-section               — Infinite scrolling marquee
-│   ├── #skills                        — Skill bars + tech chip cloud
-│   ├── #experience                    — Timeline with job cards
-│   ├── #projects                      — 3-column project grid
-│   ├── #education                     — Degree cards + certifications
-│   ├── #contact                       — Contact info + ripple avatar
-│   └── <footer>
-│
-└── <script>
-    ├── Loader fade-out logic
-    ├── Custom cursor (dot + trailing ring)
-    ├── Particle canvas (draw loop)
-    ├── IntersectionObserver (scroll reveal)
-    ├── Skill bar animation on scroll
-    └── Mobile nav toggle
+```yaml
+metrics:
+  - { label: "Subjects", value: "32" }
 ```
 
----
+They appear on the case-study page and in the chat's knowledge base after the next build.
 
-## 🎨 Customization
+**CV:** put your PDF at `public/cv.pdf`. The Download CV buttons only render when that file exists.
 
-All design tokens are defined as CSS variables at the top of the `<style>` block:
+## The chat (RAG)
 
-```css
-:root {
-  --indigo: #4f35c7;
-  --indigo-light: #6c55e0;
-  --pink: #f0107a;
-  --cyan: #00d4f5;
-  --amber: #ffb300;
-  --bg: #080812;
-  --font-head: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-}
-```
+1. `npm run build:kb` (`scripts/build-kb.ts`) reads `content/`, splits it into chunks of at most 300 words with metadata (source, section, title, URL), and writes `public/kb.json`. It runs automatically as part of `npm run build`.
+2. `/api/chat` (`api/chat.ts`) retrieves the top 6 chunks with BM25 keyword search (no extra service or key), then streams an answer from the configured model over server-sent events. The system prompt restricts it to the retrieved context.
+3. If no key is set, the provider errors, or a free quota runs out, the chat shows the most relevant portfolio sections instead of failing.
 
-### To update personal info:
-- **Name, title, description** — Search for `Varadkrishna Kamtikar` in the HTML body
-- **Email** — Search for `varad.kamtikar@gmail.com`
-- **Phone** — Search for `+353 89 201 6969`
-- **Skills proficiency** — Update `data-width="92"` attributes on `.skill-bar-fill` elements
-- **Projects** — Edit the `.proj-card` divs in the `#projects` section
-- **Stats on hero card** — Edit the `.stat-num` values in `.hero-card`
+Guardrails: 500-character input limit, empty/spam/abusive input rejected, 20 requests per IP per hour (in-memory, so it resets per serverless instance; swap in Vercel KV if you need a hard limit), queries logged to the console only (no IPs stored), and model output rendered through an HTML-escaping Markdown renderer.
 
-### To change the color palette:
-Update the CSS variables in `:root` — all colors cascade automatically throughout the entire file.
+## Environment variables
 
-### To change fonts:
-1. Update the Google Fonts `<link>` in `<head>`
-2. Update `--font-head` and `--font-body` in `:root`
+Set these in Vercel → Project → Settings → Environment Variables. Never commit real values. See `.env.example`.
 
----
-
-## ⚡ Performance
-
-Since there are no external JS libraries or CSS frameworks, load performance is excellent:
-
-| Metric | Value |
+| Variable | Purpose |
 |---|---|
-| External dependencies | Google Fonts only |
-| JavaScript frameworks | None |
-| CSS frameworks | None |
-| Total file size | ~45KB (single HTML file) |
-| Browser support | All modern browsers (Chrome, Firefox, Safari, Edge) |
-| Mobile support | Fully responsive (single column on ≤600px) |
+| `LLM_API_KEY` | Key for the chat model provider (default provider: Groq's free tier) |
+| `LLM_BASE_URL` | OpenAI-compatible base URL (default `https://api.groq.com/openai/v1`) |
+| `CHAT_MODEL` | Model id (default `openai/gpt-oss-120b`; check your provider's current list) |
+| `LLM_PROVIDER` | `openai` (default, any OpenAI-compatible API) or `anthropic` |
+| `ANTHROPIC_API_KEY` | Only when `LLM_PROVIDER=anthropic` (model defaults to `claude-haiku-5-5`, with prompt caching) |
+| `BANKNOTE_API_URL` | Base URL of the deployed Bank Note FastAPI service. Blank means the demo shows an "unavailable" message |
 
-The particle canvas uses `requestAnimationFrame` for smooth 60fps animation without blocking the main thread. The IntersectionObserver API avoids scroll event listener overhead.
+## Deploy to Vercel (with the custom domain)
 
----
+GitHub Pages can only serve static files, so the chat backend needs Vercel. **Do the steps in this order so the live site is never down:**
 
-## 📬 Contact
+1. **Work on a branch.** Push this code to a branch such as `redesign`, not `main`. If `main` is what GitHub Pages serves, merging early would replace the live site with source files.
+2. **Import the repo in Vercel** (vercel.com → Add New → Project). Framework preset: Astro. The defaults work (`npm run build`, output `dist`). Vercel builds `api/*.ts` as serverless functions automatically.
+3. **Add the environment variables** above, then redeploy. Open the preview URL and test the site and the chat.
+4. **Add the domain.** Project → Settings → Domains → add `varadkamtikar.online` (and `www.varadkamtikar.online`, redirected to the apex). Vercel shows the exact records to create.
+5. **Change DNS at your registrar.** Replace the existing GitHub Pages records with Vercel's:
+   - Apex (`@`): `A` record → `76.76.21.21`
+   - `www`: `CNAME` → `cname.vercel-dns.com`
 
-**Varadkrishna Kamtikar**
+   Remove the old GitHub Pages `A` records (185.199.108.153 and the other 185.199.x.x addresses) and any old `CNAME`. Use the values Vercel displays if they differ. DNS changes can take minutes to hours. HTTPS is issued automatically.
+6. **After the domain works on Vercel:** merge the branch into `main`, delete the `CNAME` file (a GitHub Pages leftover), and turn off Pages in the repo settings (Settings → Pages).
 
-- 📧 Email: [varad.kamtikar@gmail.com](mailto:varad.kamtikar@gmail.com)
-- 📍 Location: Dublin, Ireland
-- 💼 LinkedIn: [linkedin.com/in/varadkamtikar](https://linkedin.com/in/varadkamtikar)
-- 🐙 GitHub: [github.com/varadkamtikar](https://github.com/varadkamtikar)
-- 📞 Phone: +353 89 201 6969
+## Project structure
 
----
+```
+content/        all editable text (see above)
+api/            Vercel serverless functions: chat.ts, banknote.ts
+scripts/        build-kb.ts (knowledge-base build)
+src/components/ page sections
+src/lib/        pure logic: chunking, BM25, chat helpers, markdown, SSE, explorer
+src/scripts/    browser code: motion, loader, waveform, cursor, palette, chat, explorer
+src/pages/      index, 404, projects/[slug] (shared case-study template)
+public/         og.png (1200x630), favicon, robots.txt, generated kb.json
+tests/          unit + DOM tests, qa.json (15-question retrieval set)
+```
 
-## 📄 License
+## Accessibility and motion
 
-This project is open source and available under the [MIT License](LICENSE).
+Semantic landmarks, skip link, visible focus rings, keyboard-operable chat/palette/toggles. `prefers-reduced-motion` disables the loader, smooth scroll, reveals and animated waveforms (a static waveform is drawn instead); content is never hidden by CSS and is only hidden by JS while an entrance animation is about to play.
 
-Feel free to use this as inspiration for your own portfolio — just update the content with your own information.
+## License
 
----
-
-<div align="center">
-
-Made with ❤️ by **Varadkrishna Kamtikar** · Dublin, Ireland · 2025
-
-⭐ If you found this useful, give it a star!
-
-</div>
+MIT — see `LICENSE`.

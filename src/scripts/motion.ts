@@ -11,7 +11,8 @@ const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
 export function initMotion(): { playHero: () => void } {
   document.addEventListener('goto', (e) => {
     const el = document.getElementById((e as CustomEvent<string>).detail);
-    if (el) lenis ? lenis.scrollTo(el, { offset: -80 }) : el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+    if (!el) { location.href = '/#' + (e as CustomEvent<string>).detail; return; }
+    lenis ? lenis.scrollTo(el, { offset: -80 }) : el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
   });
   if (reduced) return { playHero: () => {} };
 
@@ -19,12 +20,12 @@ export function initMotion(): { playHero: () => void } {
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((t) => lenis?.raf(t * 1000));
   gsap.ticker.lagSmoothing(0);
-  document.addEventListener('palette:open', () => lenis?.stop());
-  document.addEventListener('palette:close', () => lenis?.start());
+  document.addEventListener('overlay:open', () => lenis?.stop());
+  document.addEventListener('overlay:close', () => lenis?.start());
 
   // hero intro, paused until the loader finishes
   const hero = gsap.timeline({ paused: true, defaults: { ease: 'power3.out' } });
-  hero
+  if (document.querySelector('.hero')) hero
     .from('.hero .badge', { opacity: 0, y: 16, duration: 0.6 })
     .from('.hero h1', { opacity: 0, y: 40, duration: 0.9 }, '-=0.3')
     .from('.hero .tagline', { opacity: 0, y: 20, duration: 0.7 }, '-=0.5')

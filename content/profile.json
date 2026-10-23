@@ -16,7 +16,16 @@
     "github": "https://github.com/varadkamtikar",
     "linkedin": "https://www.linkedin.com/in/varadkamtikar/"
   },
-  "cv": { "file": "/cv.pdf", "placeholder": true },
+  "cv": {
+    "file": "/cv.pdf",
+    "placeholder": true
+  },
   "siteUrl": "https://varadkamtikar.online",
-  "lastUpdated": "2026-10-23"
+  "lastUpdated": "2026-10-23",
+  "chatSuggestions": [
+    "What did you build for your MSc?",
+    "Have you worked with time-series data?",
+    "Tell me about your Accenture experience",
+    "What's your mainframe background?"
+  ]
 }

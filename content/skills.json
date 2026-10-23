@@ -1,8 +1,51 @@
 [
-  { "category": "Languages", "skills": ["Python", "SQL", "R", "COBOL/JCL"] },
-  { "category": "ML & AI", "skills": ["Scikit-learn", "TensorFlow", "PyTorch", "CNN", "RNN/LSTM", "Transformers", "NLP", "LangChain", "RAG pipelines", "Hugging Face", "SMOTE", "Feature engineering"] },
-  { "category": "Data Engineering", "skills": ["Pandas", "NumPy", "FastAPI", "Streamlit"] },
-  { "category": "Databases", "skills": ["PostgreSQL", "MySQL", "SQLite", "MongoDB", "DB2"] },
-  { "category": "Visualisation", "skills": ["Power BI", "Tableau", "Matplotlib", "Seaborn", "Plotly"] },
-  { "category": "Cloud & Tools", "skills": ["Azure", "AWS", "Docker", "Git", "Jupyter"] }
+  { "category": "Languages", "skills": [
+    { "name": "Python", "roles": ["ds", "da"] },
+    { "name": "SQL (advanced)", "roles": ["ds", "da"], "aliases": ["SQL"] },
+    { "name": "R", "roles": ["ds", "da"] },
+    { "name": "COBOL/JCL", "roles": [] }
+  ] },
+  { "category": "ML & AI", "skills": [
+    { "name": "Scikit-learn", "roles": ["ds"] },
+    { "name": "XGBoost", "roles": ["ds"] },
+    { "name": "TensorFlow", "roles": ["ds"] },
+    { "name": "PyTorch", "roles": ["ds"] },
+    { "name": "CNN", "roles": ["ds"] },
+    { "name": "RNN/LSTM", "roles": ["ds"], "aliases": ["LSTM", "RNN"] },
+    { "name": "Transformers", "roles": ["ds"] },
+    { "name": "NLP", "roles": ["ds"] },
+    { "name": "LangChain", "roles": ["ds"] },
+    { "name": "RAG pipelines", "roles": ["ds"] },
+    { "name": "Hugging Face", "roles": ["ds"] },
+    { "name": "SMOTE", "roles": ["ds"] },
+    { "name": "Feature engineering", "roles": ["ds", "da"] }
+  ] },
+  { "category": "Data Engineering", "skills": [
+    { "name": "Pandas", "roles": ["ds", "da"] },
+    { "name": "NumPy", "roles": ["ds", "da"] },
+    { "name": "MNE-Python", "roles": ["ds"] },
+    { "name": "FastAPI", "roles": ["ds"] },
+    { "name": "Streamlit", "roles": ["ds", "da"] }
+  ] },
+  { "category": "Databases", "skills": [
+    { "name": "PostgreSQL", "roles": ["ds", "da"] },
+    { "name": "MySQL", "roles": ["ds", "da"] },
+    { "name": "SQLite", "roles": ["ds", "da"] },
+    { "name": "MongoDB", "roles": ["ds", "da"] },
+    { "name": "DB2", "roles": ["da"] }
+  ] },
+  { "category": "Visualisation", "skills": [
+    { "name": "Power BI", "roles": ["da"] },
+    { "name": "Tableau", "roles": ["da"] },
+    { "name": "Matplotlib", "roles": ["ds", "da"] },
+    { "name": "Seaborn", "roles": ["ds", "da"] },
+    { "name": "Plotly", "roles": ["ds", "da"] }
+  ] },
+  { "category": "Cloud & Tools", "skills": [
+    { "name": "Azure", "roles": ["ds", "da"], "aliases": ["Azure (AZ-900)"] },
+    { "name": "AWS", "roles": ["ds", "da"] },
+    { "name": "Docker", "roles": ["ds"] },
+    { "name": "Git", "roles": ["ds", "da"] },
+    { "name": "Jupyter", "roles": ["ds", "da"] }
+  ] }
 ]

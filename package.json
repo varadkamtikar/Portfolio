@@ -3,12 +3,13 @@
   "type": "module",
   "version": "1.0.0",
   "private": true,
+  "engines": { "node": ">=20" },
   "scripts": {
     "dev": "astro dev",
     "build:kb": "tsx scripts/build-kb.ts",
     "build": "npm run build:kb && astro build",
     "preview": "astro preview",
-    "test": "vitest run"
+    "test": "npm run build:kb && vitest run"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
@@ -17,11 +18,13 @@
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "astro": "^7.4.2",
     "gsap": "^3.15.0",
-    "lenis": "^1.3.27"
+    "lenis": "^1.3.27",
+    "yaml": "^2.9.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
     "@types/node": "^26.6.5",
+    "jsdom": "^30.1.3",
     "tailwindcss": "^4.3.3",
     "tsx": "^4.23.15",
     "typescript": "^7.0.2",

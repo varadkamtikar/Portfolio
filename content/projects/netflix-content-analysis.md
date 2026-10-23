@@ -8,12 +8,10 @@ stack: ["Tableau"]
 repo: https://github.com/varadkamtikar/Tableau-Netflix-Content-Analysis
 live: ""
 metrics: []
+pipeline: ["Netflix catalogue data", "Analysis", "Tableau dashboard"]
 ---
 ## Problem
 A Tableau dashboard on Netflix catalogue patterns.
 
 ## Approach
 Exploratory analysis of catalogue patterns presented as a Tableau dashboard.
-
-## Key metrics
-[METRICS TBD] To be added.

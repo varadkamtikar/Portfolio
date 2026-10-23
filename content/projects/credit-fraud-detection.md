@@ -8,12 +8,10 @@ stack: ["Python", "Scikit-learn", "SMOTE"]
 repo: https://github.com/varadkamtikar/Credit-Fraud-Detection
 live: ""
 metrics: []
+pipeline: ["Transaction data", "SMOTE", "Classifier", "Precision / recall"]
 ---
 ## Problem
 Classification with SMOTE, evaluated with precision and recall.
 
 ## Approach
 Imbalanced classification handled with SMOTE and evaluated on precision and recall.
-
-## Key metrics
-[METRICS TBD] To be added.
