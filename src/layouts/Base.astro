@@ -12,6 +12,8 @@ const { title, description } = Astro.props;
     <meta name="description" content={description} />
     <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
     <script is:inline>
+      document.documentElement.classList.add('js', 'loading');
+      setTimeout(function () { var l = document.getElementById('loader'); if (l) { l.remove(); } document.documentElement.classList.remove('loading'); }, 6000);
       try {
         var t = localStorage.getItem('theme');
         if (!t) t = 'dark';
@@ -20,6 +22,7 @@ const { title, description } = Astro.props;
     </script>
   </head>
   <body>
+    <div id="cursor-dot" aria-hidden="true"></div><div id="cursor-ring" aria-hidden="true"></div>
     <a class="skip-link" href="#main">Skip to content</a>
     <slot />
   </body>

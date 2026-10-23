@@ -12,18 +12,27 @@ import NotesNow from '../components/NotesNow.astro';
 import Ask from '../components/Ask.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
+import Loader from '../components/Loader.astro';
+import Palette from '../components/Palette.astro';
+import Divider from '../components/Divider.astro';
 ---
 <Base title={`${profile.name} — ${profile.title}`} description={profile.tagline}>
+  <Loader />
   <Nav />
+  <Palette />
   <main id="main">
     <Hero />
+    <Divider />
     <About />
     <Experience />
+    <Divider />
     <Projects />
     <Skills />
+    <Divider />
     <Learning />
     <NotesNow />
     <Ask />
+    <Divider />
     <Contact />
   </main>
   <Footer />

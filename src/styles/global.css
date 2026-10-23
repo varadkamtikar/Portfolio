@@ -92,3 +92,13 @@ body::after {
   *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
 }
 html { scroll-padding-top: 5rem; } .sec { padding-block: 5rem; }
+
+/* custom cursor (fine pointers only; enabled by JS) */
+#cursor-dot, #cursor-ring { display: none; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 300; border-radius: 50%; }
+html.has-cursor #cursor-dot, html.has-cursor #cursor-ring { display: block; }
+#cursor-dot { width: 6px; height: 6px; background: var(--accent); }
+#cursor-ring { width: 34px; height: 34px; border: 1px solid var(--accent); transition: background .2s; }
+#cursor-ring.on { background: color-mix(in srgb, var(--accent) 15%, transparent); }
+html.has-cursor, html.has-cursor a, html.has-cursor button { cursor: none; }
+html.has-cursor input { cursor: text; }
+html.loading { overflow: hidden; }

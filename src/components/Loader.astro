@@ -1,0 +1,11 @@
+<div id="loader" aria-hidden="true">
+  <canvas></canvas>
+  <p class="loader-name">Varadkrishna Kamtikar</p>
+</div>
+<style is:global>
+  #loader { display: none; }
+  html.js.loading #loader { display: grid; position: fixed; inset: 0; z-index: 200; background: var(--bg); place-items: center; align-content: center; gap: 1rem; cursor: pointer; }
+  #loader canvas { width: min(90vw, 900px); height: 160px; }
+  .loader-name { font-family: var(--font-display); font-size: var(--step-3); margin: 0; letter-spacing: -0.02em; text-align: center; }
+  .loader-name span { opacity: 0; }
+</style>

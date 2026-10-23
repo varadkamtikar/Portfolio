@@ -1,6 +1,14 @@
 import { initWaveforms } from './waveform';
+import { initMotion } from './motion';
+import { initCursor } from './cursor';
+import { initPalette } from './palette';
+import { runLoader } from './loader';
 
 initWaveforms();
+initCursor();
+initPalette();
+const { playHero } = initMotion();
+runLoader().then(playHero);
 
 // theme toggle
 document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]').forEach((b) =>

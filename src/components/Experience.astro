@@ -4,6 +4,8 @@ import exp from '../../content/experience.json';
 ---
 <section id="experience" class="wrap sec">
   <SectionHead index="02" title="Experience" />
+  <div class="tl-wrap">
+  <div class="tl-progress" aria-hidden="true"></div>
   <ol class="tl">
     {exp.map((e) => (
       <li>
@@ -16,15 +18,18 @@ import exp from '../../content/experience.json';
       </li>
     ))}
   </ol>
+  </div>
 </section>
 <style>
+  .tl-wrap { position: relative; }
   .tl { list-style: none; padding: 0; margin: 0; border-left: 1px solid var(--line); }
   .tl > li { position: relative; display: grid; grid-template-columns: 11rem 1fr; gap: 2rem; padding: 0 0 3.5rem 2rem; }
   .tl > li::before { content: ""; position: absolute; left: -5px; top: 0.5rem; width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .tl-progress { position: absolute; z-index: 1; left: 0; top: 0; bottom: 0; width: 2px; background: var(--accent); transform-origin: top; }
   .when { color: var(--muted); margin: 0.25rem 0 0; }
   h3 { font-size: var(--step-2); }
   .org { color: var(--muted); margin: 0.4rem 0 1rem; }
-  .tag { border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.6rem; margin-left: 0.5rem; color: var(--accent); }
+  .tag { display: inline-block; margin-top: 0.3rem; border: 1px solid var(--line); border-radius: 999px; padding: 0.1rem 0.6rem; margin-left: 0.5rem; color: var(--accent); }
   ul { margin: 0; padding-left: 1.1rem; color: var(--muted); display: grid; gap: 0.4rem; max-width: 62ch; }
   @media (max-width: 700px) { .tl > li { grid-template-columns: 1fr; gap: 0.5rem; } }
 </style>

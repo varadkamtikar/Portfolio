@@ -1,0 +1,17 @@
+<dialog id="palette" aria-label="Command palette" data-lenis-prevent>
+  <input type="text" placeholder="Type a command or section…" aria-label="Search commands" role="combobox" aria-controls="palette-list" aria-expanded="true" autocomplete="off" />
+  <ul id="palette-list" role="listbox"></ul>
+  <p class="mono hint">↑↓ navigate · Enter select · Esc close</p>
+</dialog>
+<style is:global>
+  #palette { width: min(560px, 92vw); padding: 0; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); color: var(--ink); margin: 12vh auto auto; }
+  #palette::backdrop { background: rgb(0 0 0 / 0.6); backdrop-filter: blur(3px); }
+  #palette input { width: 100%; box-sizing: border-box; padding: 1rem 1.25rem; background: none; border: 0; border-bottom: 1px solid var(--line); color: var(--ink); font: inherit; font-size: var(--step-1); }
+  #palette input:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 10px 10px 0 0; }
+  #palette ul { list-style: none; margin: 0; padding: 0.4rem; max-height: 50vh; overflow: auto; }
+  #palette li { display: flex; justify-content: space-between; padding: 0.65rem 0.9rem; border-radius: 6px; cursor: pointer; }
+  #palette li span.mono { color: var(--muted); }
+  #palette li[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); }
+  #palette li[aria-selected="true"] span.mono { color: inherit; }
+  #palette .hint { margin: 0; padding: 0.6rem 1.25rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.72rem; }
+</style>
